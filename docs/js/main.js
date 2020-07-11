@@ -503,24 +503,14 @@ rev.slick({
   }]
 }); // slider reviews end 
 
-/*
-  $('.js-inputfile').each(function (index, element) {
-    var _this = this;
+$('.js-inputfile').on('change', function (event) {
+  var label_text;
 
-    var default_label_text = $(this).find('label.inputfile-label').text();
-    $(this).find('input[type=file]').on('change', function (event) {
-      var label_text = default_label_text;
-
-      if (event.target.files.length) {
-        label_text = event.target.files[0].name;
-      }
-
-      $(_this).find('label.inputfile-label').text(label_text);
-    });
-  });
-
-*/
-// если устройство планшет показываем элементы по клику т.к. ховера на тач устройствах нет
+  if (event.target.files.length) {
+    label_text = event.target.files[0].name;
+    $('.file-feedback-name').text(label_text).addClass('is-active');
+  }
+}); // если устройство планшет показываем элементы по клику т.к. ховера на тач устройствах нет
 
 if ($('html').hasClass('is-device-tablet') || $('html').hasClass('is-device-mobile')) {} //- end is-device-tablet
 
