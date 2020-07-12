@@ -12835,7 +12835,7 @@ h3, .h3 {
   display: block;
   position: absolute; }
 
-.d-block, .rb-select, header, .wrapper, .content-page, .screen-one, .slider-utp, .utp-slide-img, .about-home, .about-home-content, .about-home-video-cover, .equipment-home, .included-cost-home, .included-cost-box, .gallery-home, .cupon-home, .cupon-content, .reviews-home, .triger-home, .triger-box, .medical-transportation-home, .medical-transportation-content, footer, .breadcrumb-container, .tarif-container, .tarif-list, .tarif-calc-container, .calc-box, #map1, .reviews-container, .reviews-video-container, .reviews-book-container, .book-review-content, .book-review-img, .triger-car-container, .triger-car-box, .triger-car-img, .triger-car-title {
+.d-block, .rb-select, header, .wrapper, .content-page, .screen-one, .slider-utp, .utp-slide-img, .about-home, .about-home-content, .about-home-video-cover, .equipment-home, .included-cost-home, .included-cost-box, .gallery-home, .cupon-home, .cupon-content, .reviews-home, .triger-home, .triger-box, .medical-transportation-home, .medical-transportation-content, footer, .breadcrumb-container, .tarif-container, .tarif-list, .tarif-calc-container, .calc-box, #map1, .reviews-container, .reviews-video-container, .reviews-book-container, .book-review-content, .book-review-img, .triger-car-container, .triger-car-box, .triger-car-img, .triger-car-title, .partner-container {
   display: block;
   float: left;
   width: 100%; }
@@ -15467,7 +15467,24 @@ footer {
     .equipment-car-park {
       margin-bottom: 60px; } }
 
-/*END Автопарк and (max-width:480px)*/
+/*END Автопарк */
+/*START partners */
+.partner-container {
+  overflow: hidden; }
+  .partner-container .page-title {
+    margin-bottom: 55px; }
+
+.partner-img {
+  width: 817px;
+  margin-top: -83px;
+  margin-left: -20px; }
+
+.medical-transportation-partners {
+  background: url("../images/bg-partners.jpg") no-repeat center; }
+  .medical-transportation-partners .h1 {
+    white-space: nowrap; }
+
+/*END partners */
 .is-device-mobile .btn-red:active, .is-device-tablet .btn-red:active {
   -webkit-box-shadow: 0 11px 40px 0 rgba(179, 103, 108, 0.3), inset 0 -3px 0 0 rgba(0, 0, 0, 0.25);
      -moz-box-shadow: 0 11px 40px 0 rgba(179, 103, 108, 0.3), inset 0 -3px 0 0 rgba(0, 0, 0, 0.25);
@@ -15613,7 +15630,17 @@ footer {
     font-size: 18px;
     line-height: 24px; }
   .triger-car-box p {
-    font-size: 13px; } }
+    font-size: 13px; }
+  .partner-img {
+    margin: 20px 0 0;
+    width: 100%; }
+    .partner-img img {
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+      height: auto; }
+  .medical-transportation-partners {
+    background: url("../images/bg-partners-768.jpg") no-repeat center; } }
 
 /* END 1199px */
 /* START 767px */
@@ -16128,7 +16155,13 @@ footer {
     margin-bottom: 50px; }
   .triger-car-col {
     margin-bottom: 20px;
-    width: 50%; } }
+    width: 50%; }
+  .medical-transportation-partners {
+    background: url("../images/bg-partners-320.jpg") no-repeat center; }
+  .partner-container .page-title {
+    margin-bottom: 20px; }
+  .medical-transportation-content p br {
+    display: none; } }
 
 /* END 767px */
 /* START 479px */
