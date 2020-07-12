@@ -466,8 +466,6 @@ rev.on('init', function (event, slick, currentSlide) {
   slick.$prev = prev;
   slick.$next = next;
 }).on('beforeChange', function (event, slick, currentSlide, nextSlide) {
-  // console.log('beforeChange');
-  // console.log(slick.$prev, slick.$next);
   var cur = $(slick.$slides[nextSlide]);
   slick.$prev.removeClass('slick-sprev');
   slick.$next.removeClass('slick-snext');
@@ -555,6 +553,52 @@ $('.btn-cost').on('click', function (e) {
 
   if (!$(this).hasClass('btn-disable-js')) {// выполняем подсчет
   }
+}); //видео слайдер отзывов
+
+$('.sliderVideoReviews').slick({
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  infinite: false,
+  arrows: true,
+  fade: true,
+  dots: true
+});
+$('.sliderVideoThumbReviews').slick({
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: false,
+  infinite: false,
+  variableWidth: true
+});
+$('.sliderBookReviews').slick({
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  arrows: true,
+  responsive: [{
+    breakpoint: 1024,
+    settings: {
+      slidesToShow: 3,
+      slidesToScroll: 1
+    }
+  }, {
+    breakpoint: 640,
+    settings: {
+      slidesToShow: 2,
+      slidesToScroll: 1
+    }
+  }, {
+    breakpoint: 480,
+    settings: {
+      slidesToShow: 1,
+      slidesToScroll: 1
+    }
+  }]
+}); // переключение по миниатюрам слайдер отзывов
+
+$('body').on('click', '.sliderVideoThumbReviews .slick-slide', function (e) {
+  e.preventDefault();
+  var slideIndex = parseInt($(this).attr('data-slick-index'));
+  $('.sliderVideoReviews').find('.slick-dots li:nth-child(' + (slideIndex + 1) + ')').trigger('click');
 }); // если устройство планшет показываем элементы по клику т.к. ховера на тач устройствах нет
 
 if ($('html').hasClass('is-device-tablet') || $('html').hasClass('is-device-mobile')) {} //- end is-device-tablet

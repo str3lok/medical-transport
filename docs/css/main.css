@@ -12835,7 +12835,7 @@ h3, .h3 {
   display: block;
   position: absolute; }
 
-.d-block, .rb-select, header, .wrapper, .content-page, .screen-one, .slider-utp, .utp-slide-img, .about-home, .about-home-content, .about-home-video-cover, .equipment-home, .included-cost-home, .included-cost-box, .gallery-home, .cupon-home, .cupon-content, .reviews-home, .triger-home, .triger-box, .medical-transportation-home, .medical-transportation-content, footer, .breadcrumb-container, .tarif-container, .tarif-list, .tarif-calc-container, .calc-box, #map1 {
+.d-block, .rb-select, header, .wrapper, .content-page, .screen-one, .slider-utp, .utp-slide-img, .about-home, .about-home-content, .about-home-video-cover, .equipment-home, .included-cost-home, .included-cost-box, .gallery-home, .cupon-home, .cupon-content, .reviews-home, .triger-home, .triger-box, .medical-transportation-home, .medical-transportation-content, footer, .breadcrumb-container, .tarif-container, .tarif-list, .tarif-calc-container, .calc-box, #map1, .reviews-container, .reviews-video-container, .reviews-book-container, .book-review-content, .book-review-img {
   display: block;
   float: left;
   width: 100%; }
@@ -15222,6 +15222,224 @@ footer {
     border-color: #fff; }
 
 /*END TARIF*/
+/*START REVIEWS*/
+.btn-top {
+  float: right;
+  width: 290px;
+  margin-top: 23px; }
+
+.reviews-container {
+  border-bottom: 1px solid #dae2e5;
+  padding-bottom: 41px; }
+
+.review-text {
+  margin-top: 13px; }
+
+.reviews-video-container {
+  margin-top: 43px;
+  padding-bottom: 55px;
+  border-bottom: 1px solid #dae2e5; }
+
+.sliderVideoReviews {
+  -webkit-box-shadow: 0 34px 122px 0 rgba(45, 78, 100, 0.13);
+     -moz-box-shadow: 0 34px 122px 0 rgba(45, 78, 100, 0.13);
+          box-shadow: 0 34px 122px 0 rgba(45, 78, 100, 0.13);
+  background: none !important;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px; }
+  .sliderVideoReviews div {
+    background: none !important; }
+  .sliderVideoReviews .slick-slide > div {
+    float: left;
+    display: block !important;
+    width: 100%	!important; }
+  .sliderVideoReviews .about-home-video-cover {
+    -webkit-box-shadow: none;
+       -moz-box-shadow: none;
+            box-shadow: none; }
+  .sliderVideoReviews .about-home-video {
+    float: left;
+    display: block !important;
+    -webkit-border-radius: 10px;
+       -moz-border-radius: 10px;
+            border-radius: 10px; }
+  .sliderVideoReviews .slick-dots {
+    display: none !important; }
+  .sliderVideoReviews .slick-arrow {
+    width: 38px;
+    height: 38px;
+    border: 1px solid #2d4e64;
+    -webkit-border-radius: 29px;
+       -moz-border-radius: 29px;
+            border-radius: 29px;
+    z-index: 10;
+    opacity: 1 !important; }
+    @media (min-width: 768px) {
+      .sliderVideoReviews .slick-arrow {
+        width: 58px;
+        height: 58px; } }
+    .sliderVideoReviews .slick-arrow::before {
+      content: "";
+      opacity: 1 !important;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%; }
+      @media (min-width: 768px) {
+        .sliderVideoReviews .slick-arrow::before {
+          -webkit-background-size: 18px 12px !important;
+             -moz-background-size: 18px 12px !important;
+                  background-size: 18px 12px !important; } }
+    .sliderVideoReviews .slick-arrow.slick-prev::before {
+      background: url("../images/sprites/svg/icon-arrow-left.svg") no-repeat center; }
+    .sliderVideoReviews .slick-arrow.slick-next::before {
+      background: url("../images/sprites/svg/icon-arrow-right.svg") no-repeat center; }
+    @media (min-width: 1310px) {
+      .sliderVideoReviews .slick-arrow.slick-prev {
+        left: -75px; }
+      .sliderVideoReviews .slick-arrow.slick-next {
+        right: -75px; } }
+
+.sliderVideoThumbReviews div {
+  outline: none !important; }
+
+.sliderVideoThumbReviews .slick-slide > div {
+  margin-right: 30px; }
+
+.thumb-video {
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+  -webkit-box-shadow: 0 5px 12px 0 rgba(45, 78, 100, 0.13);
+     -moz-box-shadow: 0 5px 12px 0 rgba(45, 78, 100, 0.13);
+          box-shadow: 0 5px 12px 0 rgba(45, 78, 100, 0.13);
+  margin-bottom: 10px;
+  cursor: pointer;
+  position: relative; }
+  .thumb-video img {
+    -webkit-border-radius: 10px;
+       -moz-border-radius: 10px;
+            border-radius: 10px; }
+  .thumb-video::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    z-index: 2;
+    padding: 0;
+    background: url("../images/sprites/png/icon-play.png") no-repeat center;
+    -webkit-background-size: 53px 53px;
+       -moz-background-size: 53px;
+            background-size: 53px; }
+
+.reviews-book-container {
+  border-bottom: 1px solid #dae2e5;
+  margin-top: 40px;
+  padding-bottom: 75px; }
+
+.sliderBookReviews .slick-list {
+  width: -webkit-calc(100% + 30px);
+  width: -moz-calc(100% + 30px);
+  width: calc(100% + 30px);
+  margin-left: -15px; }
+
+.sliderBookReviews .slick-arrow {
+  width: 38px;
+  height: 38px;
+  border: 1px solid #2d4e64;
+  -webkit-border-radius: 29px;
+     -moz-border-radius: 29px;
+          border-radius: 29px;
+  z-index: 10;
+  opacity: 1 !important; }
+  @media (min-width: 768px) {
+    .sliderBookReviews .slick-arrow {
+      width: 58px;
+      height: 58px; } }
+  @media (min-width: 1200px) {
+    .sliderBookReviews .slick-arrow {
+      top: 190px; } }
+  .sliderBookReviews .slick-arrow::before {
+    content: "";
+    opacity: 1 !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; }
+    @media (min-width: 768px) {
+      .sliderBookReviews .slick-arrow::before {
+        -webkit-background-size: 18px 12px !important;
+           -moz-background-size: 18px 12px !important;
+                background-size: 18px 12px !important; } }
+  .sliderBookReviews .slick-arrow.slick-prev::before {
+    background: url("../images/sprites/svg/icon-arrow-left.svg") no-repeat center; }
+  .sliderBookReviews .slick-arrow.slick-next::before {
+    background: url("../images/sprites/svg/icon-arrow-right.svg") no-repeat center; }
+  @media (min-width: 1310px) {
+    .sliderBookReviews .slick-arrow.slick-prev {
+      left: -75px; }
+    .sliderBookReviews .slick-arrow.slick-next {
+      right: -75px; } }
+
+.book-review-content {
+  padding: 20px 15px 0; }
+
+.book-review-img {
+  -webkit-box-shadow: 0 8px 22px 0 rgba(45, 78, 100, 0.13);
+     -moz-box-shadow: 0 8px 22px 0 rgba(45, 78, 100, 0.13);
+          box-shadow: 0 8px 22px 0 rgba(45, 78, 100, 0.13); }
+
+.book-review-author {
+  width: 100%;
+  float: left;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 18px; }
+
+.book-review-user-img {
+  min-width: 46px;
+  max-width: 46px;
+  height: 46px;
+  margin-right: 17px; }
+  .book-review-user-img img {
+    -webkit-border-radius: 23px;
+       -moz-border-radius: 23px;
+            border-radius: 23px; }
+
+.book-review-date {
+  color: #325065;
+  font: 12px/16px "GothamPro", sans-serif; }
+  .book-review-date span {
+    white-space: nowrap; }
+
+.included-cost-reviews {
+  margin-top: 40px;
+  margin-bottom: 90px; }
+  .included-cost-reviews .included-cost-box {
+    line-height: 26px;
+    padding-left: 50px;
+    margin-bottom: 10px; }
+    .included-cost-reviews .included-cost-box::before {
+      top: 4px; }
+  .included-cost-reviews .page-title {
+    margin-bottom: 57px; }
+
+/*END REVIEWS*/
 .is-device-mobile .btn-red:active, .is-device-tablet .btn-red:active {
   -webkit-box-shadow: 0 11px 40px 0 rgba(179, 103, 108, 0.3), inset 0 -3px 0 0 rgba(0, 0, 0, 0.25);
      -moz-box-shadow: 0 11px 40px 0 rgba(179, 103, 108, 0.3), inset 0 -3px 0 0 rgba(0, 0, 0, 0.25);
@@ -15348,7 +15566,21 @@ footer {
     padding-bottom: 40px;
     margin-bottom: 65px; }
   .medical-transportation-home {
-    overflow: hidden; } }
+    overflow: hidden; }
+  .sliderVideoReviews .about-home-video-cover {
+    max-width: 100%; }
+  .sliderVideoReviews .about-home-video {
+    margin-top: 0; }
+  .sliderVideoReviews .slick-arrow.slick-prev,
+  .sliderBookReviews .slick-arrow.slick-prev {
+    left: 0; }
+  .sliderVideoReviews .slick-arrow.slick-next,
+  .sliderBookReviews .slick-arrow.slick-next {
+    right: 0; }
+  .reviews-video-container, .reviews-book-container, .reviews-container {
+    overflow: hidden; }
+  .book-review-img img {
+    margin: 0 auto; } }
 
 /* END 1199px */
 /* START 767px */
@@ -15855,7 +16087,12 @@ footer {
     margin-bottom: 20px;
     margin-top: 40px; }
   .breadcrumb-nav {
-    float: left; } }
+    float: left; }
+  .btn-top {
+    margin-top: 0;
+    margin-bottom: 10px; }
+  .included-cost-reviews {
+    margin-bottom: 50px; } }
 
 /* END 767px */
 /* START 479px */
