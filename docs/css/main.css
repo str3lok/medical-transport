@@ -12835,7 +12835,7 @@ h3, .h3 {
   display: block;
   position: absolute; }
 
-.d-block, .rb-select, header, .wrapper, .content-page, .screen-one, .slider-utp, .utp-slide-img, .about-home, .about-home-content, .about-home-video-cover, .equipment-home, .included-cost-home, .included-cost-box, .gallery-home, .cupon-home, .cupon-content, .reviews-home, .triger-home, .triger-box, .medical-transportation-home, .medical-transportation-content, footer, .breadcrumb-container, .tarif-container, .tarif-list, .tarif-calc-container, .calc-box, #map1, .reviews-container, .reviews-video-container, .reviews-book-container, .book-review-content, .book-review-img {
+.d-block, .rb-select, header, .wrapper, .content-page, .screen-one, .slider-utp, .utp-slide-img, .about-home, .about-home-content, .about-home-video-cover, .equipment-home, .included-cost-home, .included-cost-box, .gallery-home, .cupon-home, .cupon-content, .reviews-home, .triger-home, .triger-box, .medical-transportation-home, .medical-transportation-content, footer, .breadcrumb-container, .tarif-container, .tarif-list, .tarif-calc-container, .calc-box, #map1, .reviews-container, .reviews-video-container, .reviews-book-container, .book-review-content, .book-review-img, .triger-car-container, .triger-car-box, .triger-car-img, .triger-car-title {
   display: block;
   float: left;
   width: 100%; }
@@ -15440,6 +15440,34 @@ footer {
     margin-bottom: 57px; }
 
 /*END REVIEWS*/
+/*START Автопарк*/
+.triger-car-container {
+  margin-top: 53px; }
+
+.triger-car-img {
+  margin-bottom: 19px; }
+  .triger-car-img img {
+    -webkit-box-shadow: 0 34px 122px 0 rgba(45, 78, 100, 0.13);
+       -moz-box-shadow: 0 34px 122px 0 rgba(45, 78, 100, 0.13);
+            box-shadow: 0 34px 122px 0 rgba(45, 78, 100, 0.13);
+    width: 100%;
+    -webkit-border-radius: 10px;
+       -moz-border-radius: 10px;
+            border-radius: 10px; }
+
+.triger-car-title {
+  margin-bottom: 11px;
+  color: #325065;
+  font: 20px/26px "GothamPro", sans-serif; }
+
+.equipment-car-park {
+  background: none !important;
+  margin-top: 0; }
+  @media (max-width: 1023px) {
+    .equipment-car-park {
+      margin-bottom: 60px; } }
+
+/*END Автопарк and (max-width:480px)*/
 .is-device-mobile .btn-red:active, .is-device-tablet .btn-red:active {
   -webkit-box-shadow: 0 11px 40px 0 rgba(179, 103, 108, 0.3), inset 0 -3px 0 0 rgba(0, 0, 0, 0.25);
      -moz-box-shadow: 0 11px 40px 0 rgba(179, 103, 108, 0.3), inset 0 -3px 0 0 rgba(0, 0, 0, 0.25);
@@ -15580,7 +15608,12 @@ footer {
   .reviews-video-container, .reviews-book-container, .reviews-container {
     overflow: hidden; }
   .book-review-img img {
-    margin: 0 auto; } }
+    margin: 0 auto; }
+  .triger-car-title {
+    font-size: 18px;
+    line-height: 24px; }
+  .triger-car-box p {
+    font-size: 13px; } }
 
 /* END 1199px */
 /* START 767px */
@@ -16092,7 +16125,10 @@ footer {
     margin-top: 0;
     margin-bottom: 10px; }
   .included-cost-reviews {
-    margin-bottom: 50px; } }
+    margin-bottom: 50px; }
+  .triger-car-col {
+    margin-bottom: 20px;
+    width: 50%; } }
 
 /* END 767px */
 /* START 479px */
@@ -16108,7 +16144,9 @@ footer {
   .review-author {
     margin-top: 20px; }
   .rev_slide {
-    padding: 20px 5px; } }
+    padding: 20px 5px; }
+  .triger-car-col {
+    width: 100%; } }
 
 /* END 479px */
 
