@@ -510,17 +510,75 @@ $('.js-inputfile').on('change', function (event) {
     label_text = event.target.files[0].name;
     $('.file-feedback-name').text(label_text).addClass('is-active');
   }
+});
+$('body').on('click', '.numb-box-minus, .numb-box-plus', function (e) {
+  e.preventDefault();
+  var parentItem = $(this).closest('.calc-numb-box');
+  var input = $(parentItem).find(".numb-val");
+  var step = parseInt(input.attr("data-step"));
+  var newVal = parseInt(input.val());
+  newVal = $(this).is(".numb-box-plus") ? newVal + step : newVal - step;
+
+  if (newVal >= 1) {
+    input.val(newVal);
+    input.trigger("change");
+  }
+
+  e.preventDefault();
+});
+$('.btn-disable-js').on('click', function (e) {
+  e.preventDefault();
+});
+
+function tarifCalc() {
+  var userName, userPhone, adress1, level1, adress2, level2;
+  userName = $('.userName').val().length;
+  userPhone = $('.userPhone').val().length;
+  adress1 = $('.adress1').val().length;
+  level1 = $('.level1').val().length;
+  adress2 = $('.adress2').val().length;
+  level2 = $('.level2').val().length;
+
+  if (userName >= 2 && userPhone >= 15 && adress1 >= 5 && level1 >= 1 && adress2 >= 5 && level2 >= 1) {
+    $('.btn-disable').removeClass('btn-disable-js').addClass('btn btn-red');
+  } else {
+    $('.btn-disable').addClass('btn-disable-js').removeClass('btn btn-red');
+  }
+}
+
+$('.input-js').on('change, keyup', function () {
+  tarifCalc();
+}); // узнать стоимость
+
+$('.btn-cost').on('click', function (e) {
+  e.preventDefault();
+
+  if (!$(this).hasClass('btn-disable-js')) {// выполняем подсчет
+  }
 }); // если устройство планшет показываем элементы по клику т.к. ховера на тач устройствах нет
 
 if ($('html').hasClass('is-device-tablet') || $('html').hasClass('is-device-mobile')) {} //- end is-device-tablet
 
 
-$("input[type=tel]").mask('+7 999 999 9999'); // добавляем скроллбар при фиксированной высоте страницы
+$("input[type=tel]").mask('+7 999 999 9999');
+
+function myMap() {
+  var mapCanvas = document.getElementById("map1");
+  var mapOptions = {
+    center: new google.maps.LatLng(55.785142, 37.616122),
+    zoom: 17,
+    fullscreenControl: false,
+    streetViewControl: false,
+    mapTypeControl: false
+  };
+  var map = new google.maps.Map(mapCanvas, mapOptions);
+}
 
 function loadPage() {
-  try {// if ($('.wrapper').hasClass('wrapper__scroll')) {
-    //   $('.wrapper').addClass('pageLoaded');
-    // }
+  try {
+    if ($('#map1')) {
+      myMap();
+    }
   } catch (e) {}
 } //end loadPage
 
