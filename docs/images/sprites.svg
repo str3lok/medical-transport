@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<symbol id="icon-arrow-left" viewBox="0 0 12 8">
+	<path fill="#325065" fill-rule="evenodd" d="M12 4.8H3.19L6.52 8H4.17L0 4l4.17-4h2.35L3.19 3.2H12v1.6z" data-name="&#x424;&#x438;&#x433;&#x443;&#x440;&#x430; 2"/>
+</symbol>
+<symbol id="icon-arrow-red" viewBox="0 0 15 5">
+	<path fill="#be3d46" fill-rule="evenodd" d="M.01 2.061h11.1a3.884 3.884 0 01-.83-2.064 10.867 10.867 0 004.71 2.5 11.407 11.407 0 00-4.71 2.5 4.424 4.424 0 01.85-2.122H.01v-.82z" data-name="&#x424;&#x438;&#x433;&#x443;&#x440;&#x430; 4"/>
+</symbol>
+<symbol id="icon-arrow-right" viewBox="0 0 12 8">
+	<path fill="#325065" fill-rule="evenodd" d="M0 4.8h8.81L5.48 8h2.35L12 4 7.83 0H5.48l3.33 3.2H0v1.6z" data-name="&#x424;&#x438;&#x433;&#x443;&#x440;&#x430; 2 &#x43A;&#x43E;&#x43F;&#x438;&#x44F;"/>
+</symbol>
+<symbol id="icon-check" viewBox="0 0 14.688 12.78">
+	<path fill="#325065" fill-rule="evenodd" d="M4.12 5.9l1.99 3.44s3.235-7 8.337-9.34c-.125 1.67-.622 3.12.249 4.9-2.24.44-6.844 5.45-8.337 7.89A17.128 17.128 0 00.014 8.12z" data-name="&#x424;&#x438;&#x433;&#x443;&#x440;&#x430; 5"/>
+</symbol>
+<symbol id="icon-close-modal" viewBox="0 0 39 39">
+	<path fill="#fff" fill-rule="evenodd" d="M.01 1.312l18.282 18.294L.148 37.761l1.248 1.248L19.54 20.854l18.144 18.155L39 37.692 20.856 19.536 39 1.381 37.752.133 19.608 18.288 1.326-.006z" data-name="&#x424;&#x438;&#x433;&#x443;&#x440;&#x430; 9"/>
+</symbol>
+<symbol id="icon-file" viewBox="0 0 19.031 16.97">
+	<path fill="#fff" fill-rule="evenodd" d="M17.434 1.51a5.41 5.41 0 00-7.556 0L1.215 9.96a4.056 4.056 0 000 5.79 4.2 4.2 0 005.878 0l8.662-8.44a2.9 2.9 0 000-4.14 3 3 0 00-4.2 0L5.043 9.59a.582.582 0 000 .83.6.6 0 00.839 0L12.395 4a1.791 1.791 0 012.519 0 1.737 1.737 0 010 2.48l-8.663 8.45a3 3 0 01-4.2 0 2.909 2.909 0 010-4.15l8.578-8.35a4.179 4.179 0 015.877 0 4.049 4.049 0 010 5.79l-6.428 6.34a.58.58 0 000 .83.6.6 0 00.84 0l6.511-6.42a5.225 5.225 0 00.005-7.46z" data-name="&#x424;&#x438;&#x433;&#x443;&#x440;&#x430; 10"/>
+</symbol>
+<symbol id="icon-plus" viewBox="0 0 15.344 15.34">
+	<path fill="#be3d46" fill-rule="evenodd" d="M-.011 9.03h6.372v6.32h2.678V9.03h6.317v-2.7H9.04V.01H6.362v6.32H-.01v2.7z" data-name="&#x424;&#x438;&#x433;&#x443;&#x440;&#x430; 1"/>
+</symbol>
+</svg>
