@@ -12830,12 +12830,12 @@ h3, .h3 {
     .rb-drop li:first-child {
       border-top: 0; }
 
-.before, .rb-slct::before, .btn-red::before, .btn-red::after, .btn-prev-utp::before, .btn-next-utp::before, .included-cost-box::before, .message-box::before, .review-box::before, .breadcrumb-nav li::before, .label-checkbox::before, .label-checkbox::after {
+.before, .rb-slct::before, .btn-red::before, .btn-red::after, .btn-prev-utp::before, .btn-next-utp::before, .included-cost-box::before, .message-box::before, .review-box::before, .breadcrumb-nav li::before, .label-checkbox::before, .label-checkbox::after, .baloon-phone li a::before, .baloon-email li a::before, .baloon-adress li::before {
   content: "";
   display: block;
   position: absolute; }
 
-.d-block, .rb-select, header, .wrapper, .content-page, .screen-one, .slider-utp, .utp-slide-img, .about-home, .about-home-content, .about-home-video-cover, .equipment-home, .included-cost-home, .included-cost-box, .gallery-home, .cupon-home, .cupon-content, .reviews-home, .triger-home, .triger-box, .medical-transportation-home, .medical-transportation-content, footer, .breadcrumb-container, .tarif-container, .tarif-list, .tarif-calc-container, .calc-box, #map1, .reviews-container, .reviews-video-container, .reviews-book-container, .book-review-content, .book-review-img, .triger-car-container, .triger-car-box, .triger-car-img, .triger-car-title, .partner-container {
+.d-block, .rb-select, header, .wrapper, .content-page, .screen-one, .slider-utp, .utp-slide-img, .about-home, .about-home-content, .about-home-video-cover, .equipment-home, .included-cost-home, .included-cost-box, .gallery-home, .cupon-home, .cupon-content, .reviews-home, .triger-home, .triger-box, .medical-transportation-home, .medical-transportation-content, footer, .breadcrumb-container, .tarif-container, .tarif-list, .tarif-calc-container, .calc-box, #map1, .reviews-container, .reviews-video-container, .reviews-book-container, .book-review-content, .book-review-img, .triger-car-container, .triger-car-box, .triger-car-img, .triger-car-title, .partner-container, .map-container {
   display: block;
   float: left;
   width: 100%; }
@@ -15485,6 +15485,124 @@ footer {
     white-space: nowrap; }
 
 /*END partners */
+/*START контакты */
+.map-contacts {
+  height: 1000px;
+  float: left;
+  width: 100%; }
+
+.baloon-content {
+  width: 265px;
+  display: block;
+  margin: 0 auto;
+  overflow: hidden; }
+
+.baloon-title {
+  line-height: 30px;
+  padding-left: 30px;
+  display: block;
+  float: left;
+  width: 100%;
+  margin-bottom: 12px; }
+
+.baloon-sub-title {
+  display: block;
+  float: left;
+  width: 100%;
+  padding-left: 30px;
+  color: #6a747a;
+  white-space: nowrap;
+  font: 15px/15px "GothamPro", sans-serif;
+  margin-bottom: 5px; }
+
+.baloon-phone {
+  display: block;
+  float: left;
+  width: 100%;
+  margin-bottom: 20px; }
+  .baloon-phone li {
+    display: block;
+    float: left;
+    width: 100%;
+    margin-bottom: 4px; }
+    .baloon-phone li:last-child {
+      margin-bottom: 0; }
+    .baloon-phone li a {
+      text-decoration: none !important;
+      padding-left: 30px;
+      position: relative;
+      display: block;
+      color: #325065;
+      font: 22px/22px "GothamPro", sans-serif;
+      white-space: nowrap; }
+      .baloon-phone li a::before {
+        left: 0;
+        top: 0;
+        width: 11px;
+        height: 17px;
+        background: url("../images/sprites/svg/icon-phone.svg") no-repeat; }
+
+.baloon-email {
+  display: block;
+  float: left;
+  width: 100%;
+  margin-top: 6px;
+  margin-bottom: 17px; }
+  .baloon-email li {
+    display: block;
+    float: left;
+    width: 100%;
+    margin-bottom: 4px; }
+    .baloon-email li:last-child {
+      margin-bottom: 0; }
+    .baloon-email li a {
+      text-decoration: underline;
+      padding-left: 30px;
+      position: relative;
+      display: block;
+      color: #be3d46;
+      font: 15px/15px "GothamPro", sans-serif;
+      white-space: nowrap; }
+      .baloon-email li a::before {
+        left: 0;
+        top: 1px;
+        width: 15px;
+        height: 12px;
+        background: url("../images/sprites/svg/icon-email.svg") no-repeat; }
+
+.baloon-adress {
+  display: block;
+  float: left;
+  width: 100%; }
+  .baloon-adress li {
+    display: block;
+    float: left;
+    width: 100%;
+    position: relative;
+    color: #325065;
+    font: 15px/18px "GothamPro", sans-serif;
+    padding-left: 30px; }
+    .baloon-adress li::before {
+      left: 2px;
+      top: 1px;
+      width: 11.2px;
+      height: 15.2px;
+      background: url("../images/sprites/svg/icon-adress.svg") no-repeat; }
+
+.baloon-wrap .si-content-wrapper {
+  padding-top: 104px;
+  padding-bottom: 102px;
+  padding-left: 0;
+  padding-right: 0;
+  width: 472px; }
+
+.baloon-wrap .si-pointer-top {
+  display: none !important; }
+
+.baloon-wrap .si-content {
+  max-width: 100% !important; }
+
+/*END контакты */
 .is-device-mobile .btn-red:active, .is-device-tablet .btn-red:active {
   -webkit-box-shadow: 0 11px 40px 0 rgba(179, 103, 108, 0.3), inset 0 -3px 0 0 rgba(0, 0, 0, 0.25);
      -moz-box-shadow: 0 11px 40px 0 rgba(179, 103, 108, 0.3), inset 0 -3px 0 0 rgba(0, 0, 0, 0.25);
@@ -16161,7 +16279,57 @@ footer {
   .partner-container .page-title {
     margin-bottom: 20px; }
   .medical-transportation-content p br {
-    display: none; } }
+    display: none; }
+  .baloon-wrap {
+    margin-left: 0 !important; }
+    .baloon-wrap .si-content-wrapper {
+      padding-top: 32px;
+      padding-bottom: 32px;
+      padding-left: 0;
+      padding-right: 0;
+      width: 320px;
+      -webkit-border-radius: 160px !important;
+         -moz-border-radius: 160px !important;
+              border-radius: 160px !important; }
+    .baloon-wrap .si-pointer-top {
+      display: none !important; }
+    .baloon-wrap .si-content {
+      max-width: 100% !important; }
+  .baloon-phone li a, .baloon-email li a, .baloon-adress li {
+    font-size: 12px; }
+  .baloon-sub-title {
+    font-size: 14px;
+    padding-left: 20px; }
+  .baloon-phone {
+    margin-bottom: 5px; }
+  .baloon-email {
+    margin-bottom: 10px; }
+  .baloon-phone li a {
+    padding-left: 20px; }
+  .baloon-phone li a::before {
+    width: 9px;
+    height: 15px;
+    top: 3px;
+    -webkit-background-size: cover;
+       -moz-background-size: cover;
+            background-size: cover; }
+  .baloon-title {
+    padding-left: 20px; }
+  .baloon-email li a {
+    padding-left: 20px; }
+  .baloon-email li a::before {
+    width: 13px;
+    height: 10px;
+    top: 3px;
+    -webkit-background-size: cover;
+       -moz-background-size: cover;
+            background-size: cover; }
+  .baloon-adress li {
+    padding-left: 20px; }
+  .baloon-content {
+    width: 200px; }
+  .baloon-title {
+    margin-bottom: 8px; } }
 
 /* END 767px */
 /* START 479px */
