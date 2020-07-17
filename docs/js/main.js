@@ -618,6 +618,279 @@ function myMap() {
   var map = new google.maps.Map(mapCanvas, mapOptions);
 }
 
+function init() {
+  var center = {
+    lat: 55.754599,
+    lng: 37.623761
+  };
+  var map = new google.maps.Map($('#map')[0], {
+    zoom: 12,
+    center: center,
+    clickableIcons: false,
+    scrollwheel: false,
+    mapTypeControl: false,
+    panControl: false,
+    streetViewControl: false,
+    zoomControl: true,
+    fullscreenControl: false,
+    zoomControlOptions: {
+      style: google.maps.ZoomControlStyle.SMALL,
+      position: google.maps.ControlPosition.RIGHT_BOTTOM
+    },
+    styles: [{
+      "featureType": "water",
+      "elementType": "geometry",
+      "stylers": [{
+        "color": "#d6d9dd"
+      }, {
+        "lightness": 17
+      }]
+    }, {
+      "featureType": "landscape",
+      "elementType": "geometry",
+      "stylers": [{
+        "color": "#f5f5f5"
+      }, {
+        "lightness": 20
+      }]
+    }, {
+      "featureType": "road.highway",
+      "elementType": "geometry.fill",
+      "stylers": [{
+        "color": "#ffffff"
+      }, {
+        "lightness": 17
+      }]
+    }, {
+      "featureType": "road.highway",
+      "elementType": "geometry.stroke",
+      "stylers": [{
+        "color": "#ffffff"
+      }, {
+        "lightness": 29
+      }, {
+        "weight": 0.2
+      }]
+    }, {
+      "featureType": "road.arterial",
+      "elementType": "geometry",
+      "stylers": [{
+        "color": "#ffffff"
+      }, {
+        "lightness": 18
+      }]
+    }, {
+      "featureType": "road.local",
+      "elementType": "geometry",
+      "stylers": [{
+        "color": "#ffffff"
+      }, {
+        "lightness": 16
+      }]
+    }, {
+      "featureType": "poi",
+      "elementType": "geometry",
+      "stylers": [{
+        "color": "#f5f5f5"
+      }, {
+        "lightness": 21
+      }]
+    }, {
+      "featureType": "poi.park",
+      "elementType": "geometry",
+      "stylers": [{
+        "color": "#dedede"
+      }, {
+        "lightness": 21
+      }]
+    }, {
+      "elementType": "labels.text.stroke",
+      "stylers": [{
+        "visibility": "on"
+      }, {
+        "color": "#ffffff"
+      }, {
+        "lightness": 16
+      }]
+    }, {
+      "elementType": "labels.text.fill",
+      "stylers": [{
+        "saturation": 36
+      }, {
+        "color": "#202327"
+      }, {
+        "lightness": 20
+      }]
+    }, {
+      "elementType": "labels.icon",
+      "stylers": [{
+        "visibility": "off"
+      }]
+    }, {
+      "featureType": "transit",
+      "elementType": "geometry",
+      "stylers": [{
+        "color": "#f2f2f2"
+      }, {
+        "lightness": 19
+      }]
+    }, {
+      "featureType": "administrative",
+      "elementType": "geometry.fill",
+      "stylers": [{
+        "color": "#fefefe"
+      }, {
+        "lightness": 20
+      }]
+    }, {
+      "featureType": "administrative",
+      "elementType": "geometry.stroke",
+      "stylers": [{
+        "color": "#fefefe"
+      }, {
+        "lightness": 17
+      }, {
+        "weight": 1.2
+      }]
+    }]
+  });
+
+  var offsetCenter = function offsetCenter(dx, dy) {
+    return {
+      lat: dx,
+      lng: dy
+    };
+  };
+
+  var placements = [{
+    type: 'top',
+    title: 'Медицинская перевозка №1',
+    phone1: '+7 495 151 03 01',
+    phone2: '+7 925 204 50 30',
+    phone1Together: '+74951510301',
+    phone2Together: '+79252045030',
+    email: 'medperevozka1@gmail.com',
+    adress: 'Москва, ул. Петровка 15, стр.1.',
+    LatLng: offsetCenter(55.784341, 37.544454)
+  }, {
+    type: 'top',
+    title: 'Медицинская перевозка №1',
+    phone1: '+7 495 151 03 01',
+    phone2: '+7 925 204 50 30',
+    phone1Together: '+74951510301',
+    phone2Together: '+79252045030',
+    email: 'medperevozka1@gmail.com',
+    adress: 'Москва, ул. Петровка 15, стр.1.',
+    LatLng: offsetCenter(55.715167, 37.561620)
+  }, {
+    type: 'top',
+    title: 'Медицинская перевозка №1',
+    phone1: '+7 495 151 03 01',
+    phone2: '+7 925 204 50 30',
+    phone1Together: '+74951510301',
+    phone2Together: '+79252045030',
+    email: 'medperevozka1@gmail.com',
+    adress: 'Москва, ул. Петровка 15, стр.1.',
+    LatLng: offsetCenter(55.686920, 37.617925)
+  }, {
+    type: 'top',
+    title: 'Медицинская перевозка №1',
+    phone1: '+7 495 151 03 01',
+    phone2: '+7 925 204 50 30',
+    phone1Together: '+74951510301',
+    phone2Together: '+79252045030',
+    email: 'medperevozka1@gmail.com',
+    adress: 'Москва, ул. Петровка 15, стр.1.',
+    LatLng: offsetCenter(55.795730, 37.656182)
+  }, {
+    type: 'top',
+    title: 'Медицинская перевозка №1',
+    phone1: '+7 495 151 03 01',
+    phone2: '+7 925 204 50 30',
+    phone1Together: '+74951510301',
+    phone2Together: '+79252045030',
+    email: 'medperevozka1@gmail.com',
+    adress: 'Москва, ул. Петровка 15, стр.1.',
+    LatLng: offsetCenter(55.713039, 37.723473)
+  }];
+  $.each(placements, function (i, e) {
+    var marker = new google.maps.Marker({
+      map: map,
+      position: e.LatLng,
+      icon: {
+        url: "images/marker.png",
+        scaledSize: new google.maps.Size(126, 111)
+      }
+    });
+    var info = new SnazzyInfoWindow($.extend({}, {
+      marker: marker,
+      placement: e.type,
+      content: '<div class="baloon-content">' + '<div class="h2 baloon-title">' + e.title + '</div>' + '<div class="baloon-sub-title">Телефоны</div>' + '<ul class="baloon-phone">' + '<li><a href="tel:' + e.phone1Together + '">' + e.phone1 + '</a></li>' + '<li><a href="tel:' + e.phone2Together + '">' + e.phone2 + '</a></li>' + '</ul>' + '<div class="baloon-sub-title">Электронная почта</div>' + '<ul class="baloon-email">' + '<li><a href="mailto:' + e.email + '">' + e.email + '</a></li>' + '</ul>' + '<div class="baloon-sub-title">Фактический адрес</div>' + '<ul class="baloon-adress">' + '<li>' + e.adress + '</li>' + '</ul>' + '</div>',
+      panOnOpen: true,
+      closeWhenOthersOpen: true,
+      shadow: {
+        h: '0px',
+        v: '63px',
+        blur: '128px',
+        spread: '0px',
+        opacity: 0.21,
+        color: '#14232d'
+      },
+      offset: {
+        top: '15px',
+        left: '-23px'
+      },
+      borderRadius: '236px',
+      border: false,
+      maxWidth: 472,
+      showCloseButton: false,
+      wrapperClass: 'baloon-wrap'
+    }));
+  });
+
+  var offsetSize = function offsetSize(dx, dy) {
+    return new google.maps.Size(dx, dy);
+  };
+
+  var markerCars = [{
+    LatLng: offsetCenter(55.760406, 37.554285),
+    url: 'images/marker-car-1.png',
+    size: offsetSize(138, 97)
+  }, {
+    LatLng: offsetCenter(55.703308, 37.581699),
+    url: 'images/marker-car-2.png',
+    size: offsetSize(103, 138)
+  }, {
+    LatLng: offsetCenter(55.723898, 37.653121),
+    url: 'images/marker-car-3.png',
+    size: offsetSize(140, 95)
+  }, {
+    LatLng: offsetCenter(55.774181, 37.730239),
+    url: 'images/marker-car-4.png',
+    size: offsetSize(97, 139)
+  }, {
+    LatLng: offsetCenter(55.710597, 37.758816),
+    url: 'images/marker-car-5.png',
+    size: offsetSize(138, 107)
+  }];
+  $.each(markerCars, function (i, e) {
+    new google.maps.Marker({
+      map: map,
+      position: e.LatLng,
+      icon: {
+        url: e.url,
+        scaledSize: e.size
+      }
+    });
+  });
+}
+
+try {
+  if ($('#map')) {
+    google.maps.event.addDomListener(window, 'load', init);
+  }
+} catch (e) {}
+
 function loadPage() {
   try {
     if ($('#map1')) {
