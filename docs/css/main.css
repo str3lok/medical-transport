@@ -14520,7 +14520,8 @@ footer {
 
 /*MODAL*/
 .modal-template {
-  background: rgba(55, 64, 70, 0.42); }
+  background: rgba(55, 64, 70, 0.42);
+  display: none; }
   @media (min-width: 640px) {
     .modal-template.modal-template-style-one .uk-modal-dialog {
       background: #175268 url("../images/bg-modal.png") no-repeat center; } }
