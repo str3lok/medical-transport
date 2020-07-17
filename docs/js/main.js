@@ -828,14 +828,15 @@ function init() {
       content: '<div class="baloon-content">' + '<div class="h2 baloon-title">' + e.title + '</div>' + '<div class="baloon-sub-title">Телефоны</div>' + '<ul class="baloon-phone">' + '<li><a href="tel:' + e.phone1Together + '">' + e.phone1 + '</a></li>' + '<li><a href="tel:' + e.phone2Together + '">' + e.phone2 + '</a></li>' + '</ul>' + '<div class="baloon-sub-title">Электронная почта</div>' + '<ul class="baloon-email">' + '<li><a href="mailto:' + e.email + '">' + e.email + '</a></li>' + '</ul>' + '<div class="baloon-sub-title">Фактический адрес</div>' + '<ul class="baloon-adress">' + '<li>' + e.adress + '</li>' + '</ul>' + '</div>',
       panOnOpen: true,
       closeWhenOthersOpen: true,
-      shadow: {
-        h: '0px',
-        v: '63px',
-        blur: '128px',
-        spread: '0px',
-        opacity: 0.21,
-        color: '#14232d'
-      },
+      shadow: false,
+      //  shadow: {
+      //   h: '0px',
+      //   v: '63px',
+      //   blur: '128px',
+      //   spread: '0px',
+      //   opacity: 0.21,
+      //   color: '#14232d'
+      // },
       offset: {
         top: '15px',
         left: '-23px'

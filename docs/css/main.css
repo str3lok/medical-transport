@@ -15590,18 +15590,23 @@ footer {
       height: 15.2px;
       background: url("../images/sprites/svg/icon-adress.svg") no-repeat; }
 
-.baloon-wrap .si-content-wrapper {
-  padding-top: 104px;
-  padding-bottom: 102px;
-  padding-left: 0;
-  padding-right: 0;
-  width: 472px; }
-
-.baloon-wrap .si-pointer-top {
-  display: none !important; }
-
-.baloon-wrap .si-content {
-  max-width: 100% !important; }
+.baloon-wrap {
+  -webkit-box-shadow: 0 63px 128px 0 rgba(20, 35, 45, 0.21);
+     -moz-box-shadow: 0 63px 128px 0 rgba(20, 35, 45, 0.21);
+          box-shadow: 0 63px 128px 0 rgba(20, 35, 45, 0.21);
+  -webkit-border-radius: 236px;
+     -moz-border-radius: 236px;
+          border-radius: 236px; }
+  .baloon-wrap .si-content-wrapper {
+    padding-top: 104px;
+    padding-bottom: 102px;
+    padding-left: 0;
+    padding-right: 0;
+    width: 472px; }
+  .baloon-wrap .si-pointer-top {
+    display: none !important; }
+  .baloon-wrap .si-content {
+    max-width: 100% !important; }
 
 /*END контакты */
 .is-device-mobile .btn-red:active, .is-device-tablet .btn-red:active {
@@ -16282,10 +16287,13 @@ footer {
   .medical-transportation-content p br {
     display: none; }
   .baloon-wrap {
-    margin-left: 0 !important; }
+    margin-left: 0 !important;
+    -webkit-border-radius: 160px;
+       -moz-border-radius: 160px;
+            border-radius: 160px; }
     .baloon-wrap .si-content-wrapper {
-      padding-top: 32px;
-      padding-bottom: 32px;
+      padding-top: 33px;
+      padding-bottom: 33px;
       padding-left: 0;
       padding-right: 0;
       width: 320px;
