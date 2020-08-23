@@ -163,276 +163,62 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _vendor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./vendor */ "./src/js/vendor.js");
+/* harmony import */ var _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/typeof */ "./node_modules/@babel/runtime/helpers/typeof.js");
+/* harmony import */ var _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _vendor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./vendor */ "./src/js/vendor.js");
+
+
 /* eslint-disable no-new */
 
 
-(function ($) {
-  var iPhone = window.orientation != undefined;
-  $.mask = {
-    //Predefined character definitions
-    definitions: {
-      '9': "[0-9]",
-      'a': "[A-Za-z]",
-      '*': "[A-Za-z0-9]"
-    }
-  };
-  $.fn.extend({
-    //Helper Function for Caret positioning
-    caret: function caret(begin, end) {
-      if (this.length == 0) return;
+function scrollTo(to) {
+  var $obj = jQuery('html, body');
+  var top = 0;
+  var speed = 500;
+  var offsetX = 50;
 
-      if (typeof begin == 'number') {
-        end = typeof end == 'number' ? end : begin;
-        return this.each(function () {
-          if (this.setSelectionRange) {
-            this.focus();
-            this.setSelectionRange(begin, end);
-          } else if (this.createTextRange) {
-            var range = this.createTextRange();
-            range.collapse(true);
-            range.moveEnd('character', end);
-            range.moveStart('character', begin);
-            range.select();
-          }
-        });
-      } else {
-        if (this[0].setSelectionRange) {
-          begin = this[0].selectionStart;
-          end = this[0].selectionEnd;
-        } else if (document.selection && document.selection.createRange) {
-          var range = document.selection.createRange();
-          begin = 0 - range.duplicate().moveStart('character', -100000);
-          end = begin + range.text.length;
-        }
+  if (_babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(to) == 'object') {
+    top = to.offset().top;
+  } else if (typeof to == 'string') {
+    top = jQuery(to).offset().top;
+  } else if (typeof to == 'number') {
+    top = to;
+  }
 
-        return {
-          begin: begin,
-          end: end
-        };
+  if (arguments.length > 1) {
+    if (typeof arguments[0] == 'number' && typeof arguments[1] == 'number') {
+      speed = arguments[1];
+    } else if (typeof arguments[1] == 'string' || _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(arguments[1]) == 'object') {
+      if (_babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(arguments[1]) == 'object') {
+        $obj = arguments[1];
+      } else if (typeof arguments[1] == 'string') {
+        $obj = jQuery(arguments[1]);
       }
-    },
-    unmask: function unmask() {
-      return this.trigger("unmask");
-    },
-    mask: function mask(_mask, settings) {
-      if (!_mask && this.length > 0) {
-        var input = $(this[0]);
-        var tests = input.data("tests");
-        return $.map(input.data("buffer"), function (c, i) {
-          return tests[i] ? c : null;
-        }).join('');
-      }
-
-      settings = $.extend({
-        placeholder: "_",
-        completed: null
-      }, settings);
-      var defs = $.mask.definitions;
-      var tests = [];
-      var partialPosition = _mask.length;
-      var firstNonMaskPos = null;
-      var len = _mask.length;
-      $.each(_mask.split(""), function (i, c) {
-        if (c == '?') {
-          len--;
-          partialPosition = i;
-        } else if (defs[c]) {
-          tests.push(new RegExp(defs[c]));
-          if (firstNonMaskPos == null) firstNonMaskPos = tests.length - 1;
-        } else {
-          tests.push(null);
-        }
-      });
-      return this.each(function () {
-        var input = $(this);
-        var buffer = $.map(_mask.split(""), function (c, i) {
-          if (c != '?') return defs[c] ? settings.placeholder : c;
-        });
-        var ignore = false; //Variable for ignoring control keys
-
-        var focusText = input.val();
-        input.data("buffer", buffer).data("tests", tests);
-
-        function seekNext(pos) {
-          while (++pos <= len && !tests[pos]) {
-            ;
-          }
-
-          return pos;
-        }
-
-        ;
-
-        function shiftL(pos) {
-          while (!tests[pos] && --pos >= 0) {
-            ;
-          }
-
-          for (var i = pos; i < len; i++) {
-            if (tests[i]) {
-              buffer[i] = settings.placeholder;
-              var j = seekNext(i);
-
-              if (j < len && tests[i].test(buffer[j])) {
-                buffer[i] = buffer[j];
-              } else break;
-            }
-          }
-
-          writeBuffer();
-          input.caret(Math.max(firstNonMaskPos, pos));
-        }
-
-        ;
-
-        function shiftR(pos) {
-          for (var i = pos, c = settings.placeholder; i < len; i++) {
-            if (tests[i]) {
-              var j = seekNext(i);
-              var t = buffer[i];
-              buffer[i] = c;
-              if (j < len && tests[j].test(t)) c = t;else break;
-            }
-          }
-        }
-
-        ;
-
-        function keydownEvent(e) {
-          var pos = $(this).caret();
-          var k = e.keyCode;
-          ignore = k < 16 || k > 16 && k < 32 || k > 32 && k < 41; //delete selection before proceeding
-
-          if (pos.begin - pos.end != 0 && (!ignore || k == 8 || k == 46)) clearBuffer(pos.begin, pos.end); //backspace, delete, and escape get special treatment
-
-          if (k == 8 || k == 46 || iPhone && k == 127) {
-            //backspace/delete
-            shiftL(pos.begin + (k == 46 ? 0 : -1));
-            return false;
-          } else if (k == 27) {
-            //escape
-            input.val(focusText);
-            input.caret(0, checkVal());
-            return false;
-          }
-        }
-
-        ;
-
-        function keypressEvent(e) {
-          if (ignore) {
-            ignore = false; //Fixes Mac FF bug on backspace
-
-            return e.keyCode == 8 ? false : null;
-          }
-
-          e = e || window.event;
-          var k = e.charCode || e.keyCode || e.which;
-          var pos = $(this).caret();
-
-          if (e.ctrlKey || e.altKey || e.metaKey) {
-            //Ignore
-            return true;
-          } else if (k >= 32 && k <= 125 || k > 186) {
-            //typeable characters
-            var p = seekNext(pos.begin - 1);
-
-            if (p < len) {
-              var c = String.fromCharCode(k);
-
-              if (tests[p].test(c)) {
-                shiftR(p);
-                buffer[p] = c;
-                writeBuffer();
-                var next = seekNext(p);
-                $(this).caret(next);
-                if (settings.completed && next == len) settings.completed.call(input);
-              }
-            }
-          }
-
-          return false;
-        }
-
-        ;
-
-        function clearBuffer(start, end) {
-          for (var i = start; i < end && i < len; i++) {
-            if (tests[i]) buffer[i] = settings.placeholder;
-          }
-        }
-
-        ;
-
-        function writeBuffer() {
-          return input.val(buffer.join('')).val();
-        }
-
-        ;
-
-        function checkVal(allow) {
-          //try to place characters where they belong
-          var test = input.val();
-          var lastMatch = -1;
-
-          for (var i = 0, pos = 0; i < len; i++) {
-            if (tests[i]) {
-              buffer[i] = settings.placeholder;
-
-              while (pos++ < test.length) {
-                var c = test.charAt(pos - 1);
-
-                if (tests[i].test(c)) {
-                  buffer[i] = c;
-                  lastMatch = i;
-                  break;
-                }
-              }
-
-              if (pos > test.length) break;
-            } else if (buffer[i] == test[pos] && i != partialPosition) {
-              pos++;
-              lastMatch = i;
-            }
-          }
-
-          if (!allow && lastMatch + 1 < partialPosition) {
-            input.val("");
-            clearBuffer(0, len);
-          } else if (allow || lastMatch + 1 >= partialPosition) {
-            writeBuffer();
-            if (!allow) input.val(input.val().substring(0, lastMatch + 1));
-          }
-
-          return partialPosition ? i : firstNonMaskPos;
-        }
-
-        ;
-        if (!input.attr("readonly")) input.one("unmask", function () {
-          input.unbind(".mask").removeData("buffer").removeData("tests");
-        }).bind("focus.mask", function () {
-          focusText = input.val();
-          var pos = checkVal();
-          writeBuffer();
-          setTimeout(function () {
-            if (pos == _mask.length) input.caret(0, pos);else input.caret(pos);
-          }, 0);
-        }).bind("blur.mask", function () {
-          checkVal();
-          if (input.val() != focusText) input.change();
-        }).bind("keydown.mask", keydownEvent).bind("keypress.mask", keypressEvent, function () {
-          setTimeout(function () {
-            input.caret(checkVal(true));
-          }, 0);
-        });
-        checkVal(); //Perform initial check for existing values
-      });
     }
-  });
-})(jQuery); // AOS.init();
+
+    if (typeof arguments[2] == 'number') {
+      speed = arguments[2];
+    }
+  }
+
+  if (jQuery(window).width() < 1000) {
+    offsetX = 130;
+  }
+
+  if (speed == 0) {
+    speed = 1;
+  }
+
+  $obj.animate({
+    scrollTop: top - offsetX
+  }, speed);
+}
+
+$('.btn-scroll').on('click', function (e) {
+  e.preventDefault();
+  scrollTo($($(this).attr('href')).offset().top, 1000);
+}); // AOS.init();
 //Воспроизведение видео    
-
 
 $('.video-link').on('click', function (e) {
   e.preventDefault();
@@ -604,7 +390,9 @@ $('body').on('click', '.sliderVideoThumbReviews .slick-slide', function (e) {
 if ($('html').hasClass('is-device-tablet') || $('html').hasClass('is-device-mobile')) {} //- end is-device-tablet
 
 
-$("input[type=tel]").mask('+7 999 999 9999');
+try {
+  Inputmask("+7 999 999 9999").mask("input[type=tel]");
+} catch (e) {}
 
 function myMap() {
   var mapCanvas = document.getElementById("map1");
@@ -937,8 +725,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var uikit__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(uikit__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var parallax_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! parallax-js */ "./node_modules/parallax-js/dist/parallax.js");
 /* harmony import */ var parallax_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(parallax_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var slick_slider__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! slick-slider */ "./node_modules/slick-slider/slick/slick.js");
-/* harmony import */ var slick_slider__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(slick_slider__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var inputmask__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! inputmask */ "./node_modules/inputmask/index.js");
+/* harmony import */ var inputmask__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(inputmask__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var slick_slider__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! slick-slider */ "./node_modules/slick-slider/slick/slick.js");
+/* harmony import */ var slick_slider__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(slick_slider__WEBPACK_IMPORTED_MODULE_6__);
+
 
 
 
@@ -1013,7 +804,8 @@ svg4everybody__WEBPACK_IMPORTED_MODULE_1___default()();
 window.$ = jquery__WEBPACK_IMPORTED_MODULE_2___default.a;
 window.jQuery = jquery__WEBPACK_IMPORTED_MODULE_2___default.a;
 
-__webpack_require__(/*! ninelines-ua-parser */ "./node_modules/ninelines-ua-parser/dist/ninelines-ua-parser.js"); // require("jquery-mousewheel");
+__webpack_require__(/*! ninelines-ua-parser */ "./node_modules/ninelines-ua-parser/dist/ninelines-ua-parser.js"); // $('input[type=tel]').inputmask("+7 999 999 9999");
+// require("jquery-mousewheel");
 // require('malihu-custom-scrollbar-plugin');
 
 /***/ })

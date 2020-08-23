@@ -20,7 +20,7 @@
 		<link rel="icon" href="images/touch/favicon-96x96.png" sizes="96x96">
 		<link rel="icon" href="images/touch/android-icon-192x192.png" sizes="196x196">
 		<link rel="manifest" href="images/touch/manifest.json">
-		<link rel="stylesheet" href="css/main.css?v=1594976939416">
+		<link rel="stylesheet" href="css/main.css?v=1598187028177">
 	</head>
 	<body>
 		<header>
@@ -34,11 +34,11 @@
 						<nav class="uk-navbar-container main-nav">
 							<div class="uk-navbar-left">
 								<ul class="uk-navbar-nav">
-									<li class="uk-active"><a href="#"> <span>Тарифы и акции</span></a></li>
-									<li><a href="#"> <span>Автопарк</span></a></li>
-									<li><a href="#"> <span>Отзывы</span></a></li>
-									<li><a href="#"> <span>Контакты</span></a></li>
-									<li><a href="#"> <span>Партнерам</span></a></li>
+									<li><a href="tarif.html"> <span>Тарифы и акции</span></a></li>
+									<li class="uk-active"><a href="car-park.html"> <span>Автопарк</span></a></li>
+									<li><a href="reviews.html"> <span>Отзывы</span></a></li>
+									<li><a href="contacts.html"> <span>Контакты</span></a></li>
+									<li><a href="partners.html"> <span>Партнерам</span></a></li>
 								</ul>
 							</div><span class="head-right-call xs-visible"><a class="btn-request-call" href="#" uk-toggle="target: #modal-call-back">Заказать звонок</a></span>
 						</nav>
@@ -49,23 +49,23 @@
 				</div>
 			</div>
 		</header>
-		<div class="wrapper">
-			<div class="clear"></div>
-			<div class="breadcrumb-container">
-				<div class="container">
-					<div class="row">
-						<div class="col-xs-12 col-sm-3">
-							<div class="logo"><a href="#"><img class="img-responsive" src="images/logo.png" alt="logo"></a></div>
-						</div>
-						<div class="col-xs-12 col-sm-9">
-							<ul class="breadcrumb-nav">
-								<li><a href="#">Главная</a></li>
-								<li class="is-active">Автопарк</li>
-							</ul>
-						</div>
+		<div class="wrapper"></div>
+		<div class="breadcrumb-container">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-sm-3">
+						<div class="logo"><a href="index.html"><img class="img-responsive" src="images/logo.png" alt="logo"></a></div>
+					</div>
+					<div class="col-xs-12 col-sm-9">
+						<ul class="breadcrumb-nav">
+							<li><a href="index.html">Главная</a></li>
+							<li class="is-active">Автопарк</li>
+						</ul>
 					</div>
 				</div>
 			</div>
+		</div>
+		<div class="clear">
 			<section class="content-page">
 				<div class="clear"></div>
 				<div class="reviews-container">
@@ -223,13 +223,13 @@
 					<div class="row">
 						<div class="col-lg-9 col-sm-8 col-xs-12">
 							<div class="footer-content">
-								<div class="f-logo"><a href="home.html"><img class="img-responsive" src="images/logo.png" alt="#"></a></div>
+								<div class="f-logo"><a href="index.html"><img class="img-responsive" src="images/logo.png" alt="#"></a></div>
 								<ul class="f-nav">
-									<li><a href="#">Тарифы и акции</a></li>
-									<li><a href="#">Автопарк</a></li>
-									<li><a href="#">Отзывы</a></li>
-									<li><a href="#">Контакты</a></li>
-									<li><a href="#">Партнерам</a></li>
+									<li><a href="tarif.html">Тарифы и акции</a></li>
+									<li class="is-active"><a href="car-park.html">Автопарк</a></li>
+									<li><a href="reviews.html">Отзывы</a></li>
+									<li><a href="contacts.html">Контакты</a></li>
+									<li><a href="partners.html">Партнерам</a></li>
 								</ul>
 							</div>
 						</div>
@@ -242,7 +242,7 @@
 				</div>
 			</footer>
 		</div>
-		<div class="modal-template modal-template-style-one" id="modal-call-back" uk-modal="">
+		<div class="modal-template modal-template-style-one uk-modal" id="modal-call-back" uk-modal="">
 			<div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
 				<button class="uk-modal-close-outside" type="button" uk-close=""></button>
 				<h3 class="uk-modal-title">Обратный <br> звонок</h3>
@@ -259,7 +259,7 @@
 				</form>
 			</div>
 		</div>
-		<div class="modal-template modal-template-style-one" id="modal-order-transportation" uk-modal="">
+		<div class="modal-template modal-template-style-one uk-modal" id="modal-order-transportation" uk-modal="">
 			<div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
 				<button class="uk-modal-close-outside" type="button" uk-close=""></button>
 				<h3 class="uk-modal-title">Заказать <br> перевозку</h3>
@@ -276,7 +276,7 @@
 				</form>
 			</div>
 		</div>
-		<div class="modal-template modal-template-style-two" id="modal-get-coupon" uk-modal="">
+		<div class="modal-template modal-template-style-two uk-modal" id="modal-get-coupon" uk-modal="">
 			<div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
 				<button class="uk-modal-close-outside" type="button" uk-close=""></button>
 				<h3 class="uk-modal-title">Получить <br> купон</h3>
@@ -293,7 +293,7 @@
 				</form>
 			</div>
 		</div>
-		<div class="modal-template modal-template-style-two" id="modal-request-flyer" uk-modal="">
+		<div class="modal-template modal-template-style-two uk-modal" id="modal-request-flyer" uk-modal="">
 			<div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
 				<button class="uk-modal-close-outside" type="button" uk-close=""></button>
 				<h3 class="uk-modal-title">Запросить <br> флаер</h3>
@@ -310,7 +310,7 @@
 				</form>
 			</div>
 		</div>
-		<div class="modal-template modal-template-style-three" id="modal-give-feedback" uk-modal="">
+		<div class="modal-template modal-template-style-three uk-modal" id="modal-give-feedback" uk-modal="">
 			<div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
 				<button class="uk-modal-close-outside" type="button" uk-close=""></button>
 				<h3 class="uk-modal-title">Оставить отзыв</h3>
@@ -335,14 +335,14 @@
 				</form>
 			</div>
 		</div>
-		<div class="modal-template modal-template-style-four" id="modal-thank" uk-modal="">
+		<div class="modal-template modal-template-style-four uk-modal" id="modal-thank" uk-modal="">
 			<div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
 				<button class="uk-modal-close-outside" type="button" uk-close=""></button>
 				<h3 class="uk-modal-title">Спасибо!</h3>
 				<p>скоро свяжемся с вами</p>
 			</div>
 		</div>
-		<script src="js/vendor.js?v=1594976939416"></script>
-		<script src="js/main.js?v=1594976939416"></script>
+		<script src="js/vendor.js?v=1598187028177"></script>
+		<script src="js/main.js?v=1598187028177"></script>
 	</body>
 </html>
