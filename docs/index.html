@@ -20,7 +20,7 @@
 		<link rel="icon" href="images/touch/favicon-96x96.png" sizes="96x96">
 		<link rel="icon" href="images/touch/android-icon-192x192.png" sizes="196x196">
 		<link rel="manifest" href="images/touch/manifest.json">
-		<link rel="stylesheet" href="css/main.css?v=1598240603301">
+		<link rel="stylesheet" href="css/main.css?v=1598724991101">
 	</head>
 	<body>
 		<header>
@@ -376,18 +376,18 @@
 					</div>
 				</div>
 				<div class="clear"></div>
-				<div class="medical-transportation-home">
+				<div class="medical-transportation-home" id="medicalTransportation">
 					<div class="container">
 						<div class="row">
 							<div class="col-lg-7 col-sm-6 xs-hidden">
-								<div id="medicalScene">
-									<div class="medical-img1 paralax-box" data-depth="0.2">
-										<picture>
+								<div class="medical-scene" id="medicalScene">
+									<div class="medical-img1 paralax-box" data-depth="0.2" data-limit-y="0" data-origin-y="0">
+										<picture data-aos="fade-right">
 											<source media="(max-width: 767px)" type="image/jpg" srcset="images/dote.png"><img src="images/medical-img1.png" alt="#">
 										</picture>
 									</div>
-									<div class="medical-img2 paralax-box" data-depth="0.3">
-										<picture>
+									<div class="medical-img2 paralax-box" data-depth="0.3" data-limit-y="0">
+										<picture data-aos="fade-right">
 											<source media="(max-width: 767px)" type="image/jpg" srcset="images/dote.png">
 										</picture><img src="images/medical-img2.png" alt="#">
 									</div>
@@ -529,7 +529,9 @@
 				<p>скоро свяжемся с вами</p>
 			</div>
 		</div>
-		<script src="js/vendor.js?v=1598240603301"></script>
-		<script src="js/main.js?v=1598240603301"></script>
+		<script src="js/vendor.js?v=1598724991101"></script>
+		<script src="js/main.js?v=1598724991101"></script>
+		<script src="js/aos.js?v=1598724991101"></script>
+		<script>AOS.init();</script>
 	</body>
 </html>

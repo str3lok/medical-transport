@@ -704,6 +704,35 @@ function resizePage() {
 
 window.addEventListener("resize", resizePage);
 
+try {
+  var getMousePos = function getMousePos(xRef, yRef) {
+    var panelRect = boxercontainer.getBoundingClientRect();
+    return {
+      x: Math.floor(xRef - panelRect.left) / (panelRect.right - panelRect.left) * boxercontainer.offsetWidth,
+      y: Math.floor(yRef - panelRect.top) / (panelRect.bottom - panelRect.top) * boxercontainer.offsetHeight
+    };
+  };
+
+  var boxercontainer = document.getElementById('medicalTransportation');
+  var windowWidthBoxer = $(window).outerWidth();
+  var boxer = boxercontainer.querySelector(".medical-img2");
+  var boxer2 = boxercontainer.querySelector(".medical-img1");
+  var maxMove = boxercontainer.offsetWidth / 30;
+  var boxerCenterX = boxer.offsetLeft + boxer.offsetWidth / 2;
+  var boxerCenterY = boxer.offsetTop + boxer.offsetHeight / 2;
+  var fluidboxer = window.matchMedia("(min-width: 768px)");
+  document.getElementById('medicalTransportation').addEventListener("mousemove", function (e) {
+    var mousePos = getMousePos(e.clientX, e.clientY),
+        distX = mousePos.x - boxerCenterX,
+        distY = mousePos.y - boxerCenterY;
+
+    if (Math.abs(distX) < windowWidthBoxer && fluidboxer.matches) {
+      boxer.style.transform = "translate(" + -1 * distX / 8 + "px," + 0 + "px)";
+      boxer2.style.transform = "translate(" + -1 * distX / 12 + "px," + 0 + "px)";
+    }
+  });
+} catch (e) {}
+
 /***/ }),
 
 /***/ "./src/js/vendor.js":
@@ -741,23 +770,21 @@ try {
     if (jquery__WEBPACK_IMPORTED_MODULE_2___default()('#scene').length > 0) {
       var scene = document.getElementById('scene');
       var parallaxInstance = new parallax_js__WEBPACK_IMPORTED_MODULE_4___default.a(scene);
-    }
+    } // if($('#medicalScene').length > 0) {
+    // 	var medicalScene = document.getElementById('medicalScene');
+    // 	var parallaxInstanceMedical = new Parallax(medicalScene);
+    // } 
 
-    if (jquery__WEBPACK_IMPORTED_MODULE_2___default()('#medicalScene').length > 0) {
-      var medicalScene = document.getElementById('medicalScene');
-      var parallaxInstanceMedical = new parallax_js__WEBPACK_IMPORTED_MODULE_4___default.a(medicalScene);
-    }
 
     if (destroyParam) {
       if (jquery__WEBPACK_IMPORTED_MODULE_2___default()('#scene').length > 0) {
         parallaxInstance.destroy();
         parallaxInstance = null;
-      }
+      } // if($('#medicalScene').length > 0) {
+      // 	parallaxInstanceMedical.destroy();
+      // 	parallaxInstanceMedical = null;  
+      // }
 
-      if (jquery__WEBPACK_IMPORTED_MODULE_2___default()('#medicalScene').length > 0) {
-        parallaxInstanceMedical.destroy();
-        parallaxInstanceMedical = null;
-      }
     }
   };
 
