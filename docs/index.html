@@ -20,7 +20,7 @@
 		<link rel="icon" href="images/touch/favicon-96x96.png" sizes="96x96">
 		<link rel="icon" href="images/touch/android-icon-192x192.png" sizes="196x196">
 		<link rel="manifest" href="images/touch/manifest.json">
-		<link rel="stylesheet" href="css/main.css?v=1598724991101">
+		<link rel="stylesheet" href="css/main.css?v=1602483831885">
 	</head>
 	<body>
 		<header>
@@ -70,9 +70,9 @@
 					</div>
 				</div>
 				<div class="slider-utp">
-					<div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="max-height: 510">
-						<ul class="uk-slideshow-items">
-							<li>
+					<div class="container">
+						<div class="slider__utp slider sliderUtpInit">
+							<div>
 								<div class="container container-utp">
 									<div class="row">
 										<div class="col-lg-7 col-sm-6 col-xs-12">
@@ -82,13 +82,13 @@
 											<div class="utp-slide-content">
 												<div class="utp-slide-num">01</div>
 												<div class="utp-slide-title">Дезинфекция</div>
-												<p>Полная дезинфекция салона с заменой <br> постельного белья после каждого вызова</p><a class="uk-position-center-left btn-prev-utp" href="#" uk-slidenav-previous="" uk-slideshow-item="previous"></a><a class="uk-position-center-right btn-next-utp" href="#" uk-slidenav-next="" uk-slideshow-item="next"></a>
+												<p>Полная дезинфекция салона с заменой <br> постельного белья после каждого вызова</p>
 											</div>
 										</div>
 									</div>
 								</div>
-							</li>
-							<li>
+							</div>
+							<div>
 								<div class="container container-utp">
 									<div class="row">
 										<div class="col-lg-7 col-sm-6 col-xs-12">
@@ -98,13 +98,13 @@
 											<div class="utp-slide-content">
 												<div class="utp-slide-num">02</div>
 												<div class="utp-slide-title">Новые авто</div>
-												<p>Новые комфортные автомобили от <br> крупнейшего европейского производителя</p><a class="uk-position-center-left btn-prev-utp" href="#" uk-slidenav-previous="" uk-slideshow-item="previous"></a><a class="uk-position-center-right btn-next-utp" href="#" uk-slidenav-next="" uk-slideshow-item="next"></a>
+												<p>Новые комфортные автомобили от <br> крупнейшего европейского производителя</p>
 											</div>
 										</div>
 									</div>
 								</div>
-							</li>
-							<li>
+							</div>
+							<div>
 								<div class="container container-utp">
 									<div class="row">
 										<div class="col-lg-7 col-sm-6 col-xs-12">
@@ -114,13 +114,13 @@
 											<div class="utp-slide-content">
 												<div class="utp-slide-num">03</div>
 												<div class="utp-slide-title">Фельдшер</div>
-												<p>Команда профессионалов с фельдшером <br>	в составе экипажа</p><a class="uk-position-center-left btn-prev-utp" href="#" uk-slidenav-previous="" uk-slideshow-item="previous"></a><a class="uk-position-center-right btn-next-utp" href="#" uk-slidenav-next="" uk-slideshow-item="next"></a>
+												<p>Команда профессионалов с фельдшером <br>	в составе экипажа</p>
 											</div>
 										</div>
 									</div>
 								</div>
-							</li>
-							<li>
+							</div>
+							<div>
 								<div class="container container-utp">
 									<div class="row">
 										<div class="col-lg-7 col-sm-6 col-xs-12">
@@ -130,13 +130,13 @@
 											<div class="utp-slide-content">
 												<div class="utp-slide-num">04</div>
 												<div class="utp-slide-title">Спецтранспорт</div>
-												<p>Все автомобили зарегистрированы в ГИБДД как спецтранспорт и соответствуют всем требованиям безопасности</p><a class="uk-position-center-left btn-prev-utp" href="#" uk-slidenav-previous="" uk-slideshow-item="previous"></a><a class="uk-position-center-right btn-next-utp" href="#" uk-slidenav-next="" uk-slideshow-item="next"></a>
+												<p>Все автомобили зарегистрированы в ГИБДД как спецтранспорт и соответствуют всем требованиям безопасности</p>
 											</div>
 										</div>
 									</div>
 								</div>
-							</li>
-						</ul>
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="clear"></div>
@@ -159,7 +159,7 @@
 					</div>
 				</div>
 				<div class="clear"></div>
-				<div class="equipment-home">
+				<div class="equipment-home" id="equipmentAnimation">
 					<div class="container">
 						<div class="row">
 							<div class="col-xs-12">
@@ -381,15 +381,19 @@
 						<div class="row">
 							<div class="col-lg-7 col-sm-6 xs-hidden">
 								<div class="medical-scene" id="medicalScene">
-									<div class="medical-img1 paralax-box" data-depth="0.2" data-limit-y="0" data-origin-y="0">
-										<picture data-aos="fade-right">
-											<source media="(max-width: 767px)" type="image/jpg" srcset="images/dote.png"><img src="images/medical-img1.png" alt="#">
-										</picture>
+									<div class="medical__img--box" data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-offset="500">
+										<div class="medical-img1 paralax-box">
+											<picture>
+												<source media="(max-width: 767px)" type="image/jpg" srcset="images/dote.png"><img src="images/medical-img1.png" alt="#">
+											</picture>
+										</div>
 									</div>
-									<div class="medical-img2 paralax-box" data-depth="0.3" data-limit-y="0">
-										<picture data-aos="fade-right">
-											<source media="(max-width: 767px)" type="image/jpg" srcset="images/dote.png">
-										</picture><img src="images/medical-img2.png" alt="#">
+									<div class="medical__img--box" data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-offset="300">
+										<div class="medical-img2 paralax-box">
+											<picture>
+												<source media="(max-width: 767px)" type="image/jpg" srcset="images/dote.png">
+											</picture><img src="images/medical-img2.png" alt="#">
+										</div>
 									</div>
 								</div>
 							</div>
@@ -529,9 +533,9 @@
 				<p>скоро свяжемся с вами</p>
 			</div>
 		</div>
-		<script src="js/vendor.js?v=1598724991101"></script>
-		<script src="js/main.js?v=1598724991101"></script>
-		<script src="js/aos.js?v=1598724991101"></script>
+		<script src="js/vendor.js?v=1602483831885"></script>
+		<script src="js/main.js?v=1602483831885"></script>
+		<script src="js/aos.js?v=1602483831885"></script>
 		<script>AOS.init();</script>
 	</body>
 </html>
