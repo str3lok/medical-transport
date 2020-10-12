@@ -15586,7 +15586,9 @@ input {
 
 .gallery-home {
   margin-top: 108px;
-  margin-bottom: 93px; }
+  margin-bottom: 93px;
+  position: relative;
+  z-index: 20; }
   .gallery-home img {
     margin-top: 9px;
     margin-bottom: 9px; }
@@ -17468,6 +17470,9 @@ footer {
 /*END контакты */
 .uk-lightbox {
   background: rgba(0, 0, 0, 0.7) !important; }
+
+.slick-slide {
+  outline: none !important; }
 
 .is-device-mobile .btn-red:active, .is-device-tablet .btn-red:active {
   -webkit-box-shadow: 0 11px 40px 0 rgba(179, 103, 108, 0.3), inset 0 -3px 0 0 rgba(0, 0, 0, 0.25);
