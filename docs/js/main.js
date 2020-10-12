@@ -171,6 +171,17 @@ __webpack_require__.r(__webpack_exports__);
 /* eslint-disable no-new */
 
 
+function isMobile() {
+  try {
+    document.createEvent("TouchEvent");
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+if (isMobile()) $("body").addClass("mobile");
+
 function scrollTo(to) {
   var $obj = jQuery('html, body');
   var top = 0;
@@ -379,298 +390,101 @@ $('.sliderBookReviews').slick({
       slidesToScroll: 1
     }
   }]
+});
+$('.sliderDiscountInit').slick({
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: true,
+  dots: true,
+  fade: true,
+  autoplay: true,
+  autoplaySpeed: 2000
+});
+$('.sliderUtpInit').slick({
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: true,
+  dots: false,
+  fade: true,
+  autoplay: true,
+  autoplaySpeed: 2000
 }); // переключение по миниатюрам слайдер отзывов
 
 $('body').on('click', '.sliderVideoThumbReviews .slick-slide', function (e) {
   e.preventDefault();
   var slideIndex = parseInt($(this).attr('data-slick-index'));
   $('.sliderVideoReviews').find('.slick-dots li:nth-child(' + (slideIndex + 1) + ')').trigger('click');
-}); // если устройство планшет показываем элементы по клику т.к. ховера на тач устройствах нет
-
-if ($('html').hasClass('is-device-tablet') || $('html').hasClass('is-device-mobile')) {} //- end is-device-tablet
-
+});
 
 try {
   Inputmask("+7 999 999 9999").mask("input[type=tel]");
 } catch (e) {}
 
-function myMap() {
-  var mapCanvas = document.getElementById("map1");
-  var mapOptions = {
-    center: new google.maps.LatLng(55.785142, 37.616122),
-    zoom: 17,
-    fullscreenControl: false,
-    streetViewControl: false,
-    mapTypeControl: false
-  };
-  var map = new google.maps.Map(mapCanvas, mapOptions);
+function parallaxTransformX(boxId, boxChildOne, boxChildTwo) {
+  var boxercontainer = document.getElementById(boxId);
+  var windowWidthBoxer = $(window).outerWidth();
+  var boxer = boxercontainer.querySelector("." + boxChildOne);
+  var boxer2 = boxercontainer.querySelector("." + boxChildTwo);
+  var boxerCenterX = boxer.offsetLeft + boxer.offsetWidth / 2;
+  var boxerCenterY = boxer.offsetTop + boxer.offsetHeight / 2;
+  var fluidboxer = window.matchMedia("(min-width: 1025px)");
+
+  function getMousePos(xRef, yRef) {
+    var panelRect = boxercontainer.getBoundingClientRect();
+    return {
+      x: Math.floor(xRef - panelRect.left) / (panelRect.right - panelRect.left) * boxercontainer.offsetWidth,
+      y: Math.floor(yRef - panelRect.top) / (panelRect.bottom - panelRect.top) * boxercontainer.offsetHeight
+    };
+  }
+
+  document.getElementById(boxId).addEventListener("mousemove", function (e) {
+    var mousePos = getMousePos(e.clientX, e.clientY),
+        distX = mousePos.x - boxerCenterX,
+        distY = mousePos.y - boxerCenterY;
+
+    if (Math.abs(distX) < windowWidthBoxer && fluidboxer.matches) {
+      boxer.style.transform = "translate(" + -1 * distX / 12 + "px," + 0 + "px)";
+      boxer2.style.transform = "translate(" + -1 * distX / 16 + "px," + 0 + "px)";
+    }
+  });
 }
 
-function init() {
-  var center = {
-    lat: 55.754599,
-    lng: 37.623761
-  };
-  var map = new google.maps.Map($('#map')[0], {
-    zoom: 12,
-    center: center,
-    clickableIcons: false,
-    scrollwheel: false,
-    mapTypeControl: false,
-    panControl: false,
-    streetViewControl: false,
-    zoomControl: true,
-    fullscreenControl: false,
-    zoomControlOptions: {
-      style: google.maps.ZoomControlStyle.SMALL,
-      position: google.maps.ControlPosition.RIGHT_BOTTOM
-    },
-    styles: [{
-      "featureType": "water",
-      "elementType": "geometry",
-      "stylers": [{
-        "color": "#d6d9dd"
-      }, {
-        "lightness": 17
-      }]
-    }, {
-      "featureType": "landscape",
-      "elementType": "geometry",
-      "stylers": [{
-        "color": "#f5f5f5"
-      }, {
-        "lightness": 20
-      }]
-    }, {
-      "featureType": "road.highway",
-      "elementType": "geometry.fill",
-      "stylers": [{
-        "color": "#ffffff"
-      }, {
-        "lightness": 17
-      }]
-    }, {
-      "featureType": "road.highway",
-      "elementType": "geometry.stroke",
-      "stylers": [{
-        "color": "#ffffff"
-      }, {
-        "lightness": 29
-      }, {
-        "weight": 0.2
-      }]
-    }, {
-      "featureType": "road.arterial",
-      "elementType": "geometry",
-      "stylers": [{
-        "color": "#ffffff"
-      }, {
-        "lightness": 18
-      }]
-    }, {
-      "featureType": "road.local",
-      "elementType": "geometry",
-      "stylers": [{
-        "color": "#ffffff"
-      }, {
-        "lightness": 16
-      }]
-    }, {
-      "featureType": "poi",
-      "elementType": "geometry",
-      "stylers": [{
-        "color": "#f5f5f5"
-      }, {
-        "lightness": 21
-      }]
-    }, {
-      "featureType": "poi.park",
-      "elementType": "geometry",
-      "stylers": [{
-        "color": "#dedede"
-      }, {
-        "lightness": 21
-      }]
-    }, {
-      "elementType": "labels.text.stroke",
-      "stylers": [{
-        "visibility": "on"
-      }, {
-        "color": "#ffffff"
-      }, {
-        "lightness": 16
-      }]
-    }, {
-      "elementType": "labels.text.fill",
-      "stylers": [{
-        "saturation": 36
-      }, {
-        "color": "#202327"
-      }, {
-        "lightness": 20
-      }]
-    }, {
-      "elementType": "labels.icon",
-      "stylers": [{
-        "visibility": "off"
-      }]
-    }, {
-      "featureType": "transit",
-      "elementType": "geometry",
-      "stylers": [{
-        "color": "#f2f2f2"
-      }, {
-        "lightness": 19
-      }]
-    }, {
-      "featureType": "administrative",
-      "elementType": "geometry.fill",
-      "stylers": [{
-        "color": "#fefefe"
-      }, {
-        "lightness": 20
-      }]
-    }, {
-      "featureType": "administrative",
-      "elementType": "geometry.stroke",
-      "stylers": [{
-        "color": "#fefefe"
-      }, {
-        "lightness": 17
-      }, {
-        "weight": 1.2
-      }]
-    }]
-  });
+function parallaxTransformXY(boxId, child1, child2, child3, child4, child5, child6, child7) {
+  var boxercontainer = document.getElementById(boxId);
+  var windowWidthBoxer = $(window).outerWidth();
+  var boxer = boxercontainer.querySelector("." + child1);
+  var boxer2 = boxercontainer.querySelector("." + child2);
+  var boxer3 = boxercontainer.querySelector("." + child3);
+  var boxer4 = boxercontainer.querySelector("." + child4);
+  var boxer5 = boxercontainer.querySelector("." + child5);
+  var boxer6 = boxercontainer.querySelector("." + child6);
+  var boxer7 = boxercontainer.querySelector("." + child7);
+  var boxerCenterX = boxer.offsetLeft + boxer.offsetWidth / 2;
+  var boxerCenterY = boxer.offsetTop + boxer.offsetHeight / 2;
+  var fluidboxer = window.matchMedia("(min-width: 1025px)");
 
-  var offsetCenter = function offsetCenter(dx, dy) {
+  function getMousePos(xRef, yRef) {
+    var panelRect = boxercontainer.getBoundingClientRect();
     return {
-      lat: dx,
-      lng: dy
+      x: Math.floor(xRef - panelRect.left) / (panelRect.right - panelRect.left) * boxercontainer.offsetWidth,
+      y: Math.floor(yRef - panelRect.top) / (panelRect.bottom - panelRect.top) * boxercontainer.offsetHeight
     };
-  };
+  }
 
-  var placements = [{
-    type: 'top',
-    title: 'Медицинская перевозка №1',
-    phone1: '+7 495 151 03 01',
-    phone2: '+7 925 204 50 30',
-    phone1Together: '+74951510301',
-    phone2Together: '+79252045030',
-    email: 'medperevozka1@gmail.com',
-    adress: 'Москва, ул. Петровка 15, стр.1.',
-    LatLng: offsetCenter(55.784341, 37.544454)
-  }, {
-    type: 'top',
-    title: 'Медицинская перевозка №1',
-    phone1: '+7 495 151 03 01',
-    phone2: '+7 925 204 50 30',
-    phone1Together: '+74951510301',
-    phone2Together: '+79252045030',
-    email: 'medperevozka1@gmail.com',
-    adress: 'Москва, ул. Петровка 15, стр.1.',
-    LatLng: offsetCenter(55.715167, 37.561620)
-  }, {
-    type: 'top',
-    title: 'Медицинская перевозка №1',
-    phone1: '+7 495 151 03 01',
-    phone2: '+7 925 204 50 30',
-    phone1Together: '+74951510301',
-    phone2Together: '+79252045030',
-    email: 'medperevozka1@gmail.com',
-    adress: 'Москва, ул. Петровка 15, стр.1.',
-    LatLng: offsetCenter(55.686920, 37.617925)
-  }, {
-    type: 'top',
-    title: 'Медицинская перевозка №1',
-    phone1: '+7 495 151 03 01',
-    phone2: '+7 925 204 50 30',
-    phone1Together: '+74951510301',
-    phone2Together: '+79252045030',
-    email: 'medperevozka1@gmail.com',
-    adress: 'Москва, ул. Петровка 15, стр.1.',
-    LatLng: offsetCenter(55.795730, 37.656182)
-  }, {
-    type: 'top',
-    title: 'Медицинская перевозка №1',
-    phone1: '+7 495 151 03 01',
-    phone2: '+7 925 204 50 30',
-    phone1Together: '+74951510301',
-    phone2Together: '+79252045030',
-    email: 'medperevozka1@gmail.com',
-    adress: 'Москва, ул. Петровка 15, стр.1.',
-    LatLng: offsetCenter(55.713039, 37.723473)
-  }];
-  $.each(placements, function (i, e) {
-    var marker = new google.maps.Marker({
-      map: map,
-      position: e.LatLng,
-      icon: {
-        url: "images/marker.png",
-        scaledSize: new google.maps.Size(126, 111)
-      }
-    });
-    var info = new SnazzyInfoWindow($.extend({}, {
-      marker: marker,
-      placement: e.type,
-      content: '<div class="baloon-content">' + '<div class="h2 baloon-title">' + e.title + '</div>' + '<div class="baloon-sub-title">Телефоны</div>' + '<ul class="baloon-phone">' + '<li><a href="tel:' + e.phone1Together + '">' + e.phone1 + '</a></li>' + '<li><a href="tel:' + e.phone2Together + '">' + e.phone2 + '</a></li>' + '</ul>' + '<div class="baloon-sub-title">Электронная почта</div>' + '<ul class="baloon-email">' + '<li><a href="mailto:' + e.email + '">' + e.email + '</a></li>' + '</ul>' + '<div class="baloon-sub-title">Фактический адрес</div>' + '<ul class="baloon-adress">' + '<li>' + e.adress + '</li>' + '</ul>' + '</div>',
-      panOnOpen: true,
-      closeWhenOthersOpen: true,
-      shadow: false,
-      //  shadow: {
-      //   h: '0px',
-      //   v: '63px',
-      //   blur: '128px',
-      //   spread: '0px',
-      //   opacity: 0.21,
-      //   color: '#14232d'
-      // },
-      offset: {
-        top: '15px',
-        left: '-23px'
-      },
-      borderRadius: '236px',
-      border: false,
-      maxWidth: 472,
-      showCloseButton: false,
-      wrapperClass: 'baloon-wrap'
-    }));
-  });
+  document.getElementById(boxId).addEventListener("mousemove", function (e) {
+    var mousePos = getMousePos(e.clientX, e.clientY),
+        distX = mousePos.x - boxerCenterX,
+        distY = mousePos.y - boxerCenterY;
 
-  var offsetSize = function offsetSize(dx, dy) {
-    return new google.maps.Size(dx, dy);
-  };
-
-  var markerCars = [{
-    LatLng: offsetCenter(55.760406, 37.554285),
-    url: 'images/marker-car-1.png',
-    size: offsetSize(138, 97)
-  }, {
-    LatLng: offsetCenter(55.703308, 37.581699),
-    url: 'images/marker-car-2.png',
-    size: offsetSize(103, 138)
-  }, {
-    LatLng: offsetCenter(55.723898, 37.653121),
-    url: 'images/marker-car-3.png',
-    size: offsetSize(140, 95)
-  }, {
-    LatLng: offsetCenter(55.774181, 37.730239),
-    url: 'images/marker-car-4.png',
-    size: offsetSize(97, 139)
-  }, {
-    LatLng: offsetCenter(55.710597, 37.758816),
-    url: 'images/marker-car-5.png',
-    size: offsetSize(138, 107)
-  }];
-  $.each(markerCars, function (i, e) {
-    new google.maps.Marker({
-      map: map,
-      position: e.LatLng,
-      icon: {
-        url: e.url,
-        scaledSize: e.size
-      }
-    });
+    if (Math.abs(distX) < windowWidthBoxer && fluidboxer.matches) {
+      boxer.style.transform = "translate(" + -1 * distX / 12 + "px," + -1 * distY / 12 + "px)";
+      boxer2.style.transform = "translate(" + -1 * distX / 16 + "px," + -1 * distY / 16 + "px)";
+      boxer3.style.transform = "translate(" + -1 * distX / 20 + "px," + -1 * distY / 20 + "px)";
+      boxer4.style.transform = "translate(" + -1 * distX / 24 + "px," + -1 * distY / 24 + "px)";
+      boxer5.style.transform = "translate(" + -1 * distX / 28 + "px," + -1 * distY / 28 + "px)";
+      boxer6.style.transform = "translate(" + -1 * distX / 32 + "px," + -1 * distY / 32 + "px)";
+      boxer7.style.transform = "translate(" + -1 * distX / 36 + "px," + -1 * distY / 36 + "px)";
+    }
   });
 }
 
@@ -678,14 +492,31 @@ try {
   if ($('#map')) {
     google.maps.event.addDomListener(window, 'load', init);
   }
-} catch (e) {}
+} catch (e) {} // loadPage
+
 
 function loadPage() {
+  var windowWidth = $(window).outerWidth();
+
   try {
     if ($('#map1')) {
       myMap();
     }
   } catch (e) {}
+
+  if (windowWidth >= 1025 && !$('body').hasClass('mobile')) {
+    try {
+      parallaxTransformX('medicalTransportation', 'medical-img2', 'medical-img1');
+    } catch (e) {}
+
+    try {
+      parallaxTransformX('partnerAnimation', 'car-one', 'car-two');
+    } catch (e) {}
+
+    try {
+      parallaxTransformXY('equipmentAnimation', 'eq1', 'eq2', 'eq3', 'eq4', 'eq5', 'eq6', 'eq7');
+    } catch (e) {}
+  }
 } //end loadPage
 
 
@@ -703,35 +534,6 @@ function resizePage() {
 
 
 window.addEventListener("resize", resizePage);
-
-try {
-  var getMousePos = function getMousePos(xRef, yRef) {
-    var panelRect = boxercontainer.getBoundingClientRect();
-    return {
-      x: Math.floor(xRef - panelRect.left) / (panelRect.right - panelRect.left) * boxercontainer.offsetWidth,
-      y: Math.floor(yRef - panelRect.top) / (panelRect.bottom - panelRect.top) * boxercontainer.offsetHeight
-    };
-  };
-
-  var boxercontainer = document.getElementById('medicalTransportation');
-  var windowWidthBoxer = $(window).outerWidth();
-  var boxer = boxercontainer.querySelector(".medical-img2");
-  var boxer2 = boxercontainer.querySelector(".medical-img1");
-  var maxMove = boxercontainer.offsetWidth / 30;
-  var boxerCenterX = boxer.offsetLeft + boxer.offsetWidth / 2;
-  var boxerCenterY = boxer.offsetTop + boxer.offsetHeight / 2;
-  var fluidboxer = window.matchMedia("(min-width: 768px)");
-  document.getElementById('medicalTransportation').addEventListener("mousemove", function (e) {
-    var mousePos = getMousePos(e.clientX, e.clientY),
-        distX = mousePos.x - boxerCenterX,
-        distY = mousePos.y - boxerCenterY;
-
-    if (Math.abs(distX) < windowWidthBoxer && fluidboxer.matches) {
-      boxer.style.transform = "translate(" + -1 * distX / 8 + "px," + 0 + "px)";
-      boxer2.style.transform = "translate(" + -1 * distX / 12 + "px," + 0 + "px)";
-    }
-  });
-} catch (e) {}
 
 /***/ }),
 
@@ -752,88 +554,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var uikit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! uikit */ "./node_modules/uikit/dist/js/uikit.js");
 /* harmony import */ var uikit__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(uikit__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var parallax_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! parallax-js */ "./node_modules/parallax-js/dist/parallax.js");
-/* harmony import */ var parallax_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(parallax_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var inputmask__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! inputmask */ "./node_modules/inputmask/index.js");
-/* harmony import */ var inputmask__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(inputmask__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var slick_slider__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! slick-slider */ "./node_modules/slick-slider/slick/slick.js");
-/* harmony import */ var slick_slider__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(slick_slider__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var inputmask__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! inputmask */ "./node_modules/inputmask/index.js");
+/* harmony import */ var inputmask__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(inputmask__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var slick_slider__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! slick-slider */ "./node_modules/slick-slider/slick/slick.js");
+/* harmony import */ var slick_slider__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(slick_slider__WEBPACK_IMPORTED_MODULE_5__);
 
 
 
 
 
-
-
-try {
-  var initParalax = function initParalax(destroyParam) {
-    if (jquery__WEBPACK_IMPORTED_MODULE_2___default()('#scene').length > 0) {
-      var scene = document.getElementById('scene');
-      var parallaxInstance = new parallax_js__WEBPACK_IMPORTED_MODULE_4___default.a(scene);
-    } // if($('#medicalScene').length > 0) {
-    // 	var medicalScene = document.getElementById('medicalScene');
-    // 	var parallaxInstanceMedical = new Parallax(medicalScene);
-    // } 
-
-
-    if (destroyParam) {
-      if (jquery__WEBPACK_IMPORTED_MODULE_2___default()('#scene').length > 0) {
-        parallaxInstance.destroy();
-        parallaxInstance = null;
-      } // if($('#medicalScene').length > 0) {
-      // 	parallaxInstanceMedical.destroy();
-      // 	parallaxInstanceMedical = null;  
-      // }
-
-    }
-  };
-
-  var loadPageParalax = function loadPageParalax() {
-    var windowWidth = jquery__WEBPACK_IMPORTED_MODULE_2___default()(window).outerWidth();
-
-    if (windowWidth >= 768) {
-      if (jquery__WEBPACK_IMPORTED_MODULE_2___default()('#scene') || jquery__WEBPACK_IMPORTED_MODULE_2___default()('#medicalScene')) {
-        initParalax();
-      }
-    }
-  }; //end loadPageParalax
-
-
-  var resizePageParalax = function resizePageParalax() {
-    var windowWidth = jquery__WEBPACK_IMPORTED_MODULE_2___default()(window).outerWidth();
-
-    if (windowWidth <= 767) {
-      if (jquery__WEBPACK_IMPORTED_MODULE_2___default()('#scene') || jquery__WEBPACK_IMPORTED_MODULE_2___default()('#medicalScene')) {
-        initParalax(true);
-      }
-    }
-
-    if (windowWidth >= 768) {
-      if (jquery__WEBPACK_IMPORTED_MODULE_2___default()('#scene') || jquery__WEBPACK_IMPORTED_MODULE_2___default()('#medicalScene')) {
-        initParalax();
-      }
-    }
-  }; //end resizePageParalax
-
-
-  window.addEventListener("load", loadPageParalax);
-  window.addEventListener("resize", resizePageParalax);
-} catch (e) {} // import 'aos';
-// import 'uikit-icons.min.js';
-
-
- // import 'magnific-popup';
-// import 'jquery-datetimepicker';
-// import 'jquery-mousewheel';
-// import 'malihu-custom-scrollbar-plugin';
 
 svg4everybody__WEBPACK_IMPORTED_MODULE_1___default()();
 window.$ = jquery__WEBPACK_IMPORTED_MODULE_2___default.a;
 window.jQuery = jquery__WEBPACK_IMPORTED_MODULE_2___default.a;
 
-__webpack_require__(/*! ninelines-ua-parser */ "./node_modules/ninelines-ua-parser/dist/ninelines-ua-parser.js"); // $('input[type=tel]').inputmask("+7 999 999 9999");
-// require("jquery-mousewheel");
-// require('malihu-custom-scrollbar-plugin');
+__webpack_require__(/*! ninelines-ua-parser */ "./node_modules/ninelines-ua-parser/dist/ninelines-ua-parser.js");
 
 /***/ })
 
