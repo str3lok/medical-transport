@@ -420,6 +420,18 @@ try {
   Inputmask("+7 999 999 9999").mask("input[type=tel]");
 } catch (e) {}
 
+function myMap() {
+  var mapCanvas = document.getElementById("map1");
+  var mapOptions = {
+    center: new google.maps.LatLng(55.785142, 37.616122),
+    zoom: 17,
+    fullscreenControl: false,
+    streetViewControl: false,
+    mapTypeControl: false
+  };
+  var map = new google.maps.Map(mapCanvas, mapOptions);
+}
+
 function parallaxTransformX(boxId, boxChildOne, boxChildTwo) {
   var boxercontainer = document.getElementById(boxId);
   var windowWidthBoxer = $(window).outerWidth();
