@@ -15914,7 +15914,7 @@ input {
     width: 100%; }
 
 .review-user-info {
-  color: #325065;
+  color: #325065 !important;
   font: 12px/12px "GothamPro", sans-serif; }
 
 .rev_slider .slick-arrow {
@@ -16816,7 +16816,10 @@ footer {
     text-align: center;
     color: #456174;
     font: 20px/22px "GothamPro-Medium", sans-serif;
-    background: none !important; }
+    background: none !important;
+    -webkit-flex-shrink: 0;
+        -ms-flex-negative: 0;
+            flex-shrink: 0; }
   .calc-numb-box + .calc-label-txt {
     line-height: 13px;
     margin-bottom: 3px; }
@@ -17473,6 +17476,12 @@ footer {
 
 .slick-slide {
   outline: none !important; }
+
+.review-box {
+  text-decoration: none !important; }
+
+.review-box-text p {
+  color: #6a747a !important; }
 
 .is-device-mobile .btn-red:active, .is-device-tablet .btn-red:active {
   -webkit-box-shadow: 0 11px 40px 0 rgba(179, 103, 108, 0.3), inset 0 -3px 0 0 rgba(0, 0, 0, 0.25);
@@ -18223,7 +18232,22 @@ footer {
   .tarif-container {
     padding-bottom: 24px; }
   .slider__discount .slick-arrow {
-    bottom: -34px; } }
+    bottom: -34px; }
+  .equipment-car-park {
+    padding-top: 30px; }
+  .slide-discount-box {
+    padding-bottom: 34px; }
+  .btn__add--review {
+    float: none !important;
+    margin: 0 auto 10px !important;
+    display: block; }
+  .review-box-text {
+    display: block;
+    float: left;
+    width: 100%; }
+  .review-author {
+    float: left;
+    width: 100%; } }
 
 /* END 767px */
 /* START 479px */

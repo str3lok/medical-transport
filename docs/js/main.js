@@ -289,7 +289,7 @@ rev.slick({
   slidesToShow: 1,
   slidesToScroll: 1,
   centerPadding: '0',
-  touchThreshold: 10,
+  touchThreshold: 50,
   responsive: [{
     breakpoint: 768,
     settings: {
@@ -358,19 +358,22 @@ $('.sliderVideoReviews').slick({
   infinite: false,
   arrows: true,
   fade: true,
-  dots: true
+  dots: true,
+  touchThreshold: 50
 });
 $('.sliderVideoThumbReviews').slick({
   slidesToShow: 1,
   slidesToScroll: 1,
   arrows: false,
   infinite: false,
-  variableWidth: true
+  variableWidth: true,
+  touchThreshold: 50
 });
 $('.sliderBookReviews').slick({
   slidesToShow: 4,
   slidesToScroll: 1,
   arrows: true,
+  touchThreshold: 50,
   responsive: [{
     breakpoint: 1024,
     settings: {
@@ -398,7 +401,8 @@ $('.sliderDiscountInit').slick({
   dots: true,
   fade: true,
   autoplay: true,
-  autoplaySpeed: 2000
+  autoplaySpeed: 2000,
+  touchThreshold: 50
 });
 $('.sliderUtpInit').slick({
   slidesToShow: 1,
@@ -407,7 +411,8 @@ $('.sliderUtpInit').slick({
   dots: false,
   fade: true,
   autoplay: true,
-  autoplaySpeed: 2000
+  autoplaySpeed: 2000,
+  touchThreshold: 50
 }); // переключение по миниатюрам слайдер отзывов
 
 $('body').on('click', '.sliderVideoThumbReviews .slick-slide', function (e) {
